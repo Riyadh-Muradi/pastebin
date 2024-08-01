@@ -4,8 +4,13 @@ import ButtonFlip from "@/components/ui/ButtonFlip";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 
 const Hero = () => {
+  const [text, setText] = useState("");
+  const lineCount = text.split("\n").length;
+  const lineNumbers = Array.from({ length: lineCount }, (_, i) => i + 1);
+
   const draw = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: {
@@ -19,9 +24,9 @@ const Hero = () => {
   };
 
   return (
-    <section className="flex h-[70vh] w-full items-center justify-between rounded-lg px-2 py-4 sm:px-6 md:px-4 lg:px-6">
+    <section className="flex h-full w-[99%] items-center justify-between rounded-lg bg-gray-600 px-2 py-4 sm:px-6 md:px-4 lg:px-6">
       {/* Text Content */}
-      <div className="flex max-w-2xl flex-col justify-center space-y-4">
+      <div className="flex max-w-4xl flex-col justify-center space-y-4">
         <h1 className="text-5xl font-bold tracking-tight text-black sm:text-7xl">
           <span className="font-alliance relative whitespace-nowrap text-black">
             <motion.svg
@@ -65,9 +70,25 @@ const Hero = () => {
           </span>
         </Link>
       </div>
-
       {/* Placeholder Box */}
-      <div className="flex flex-1 items-center justify-center">Shit here</div>
+      {/* Second Card for Textarea with Line Numbers */}
+      <div className="flex h-[25vh] flex-1 overflow-hidden bg-transparent">
+        {/* Line numbers */}
+        <div className="flex flex-col items-end p-1 text-sm text-gray-500">
+          {lineNumbers.map((number) => (
+            <span key={number} className="mt-[2px] text-sm leading-[0.9]">
+              {number}
+            </span>
+          ))}
+        </div>
+        {/* Textarea */}
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          className="w-full resize-none bg-transparent p-1 text-base leading-[0.9] text-black outline-none"
+          placeholder="Paste your code here..."
+        ></textarea>
+      </div>{" "}
     </section>
   );
 };
