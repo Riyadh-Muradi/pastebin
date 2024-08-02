@@ -23,7 +23,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="flex h-full w-[99%] items-center justify-between">
+    <section className="flex h-full w-full items-center justify-between">
       {/* Text Content */}
       <div className="flex max-w-4xl flex-col justify-center space-y-4 rounded-2xl bg-white/40 px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">
         <h1 className="text-5xl tracking-tight text-black sm:text-7xl">

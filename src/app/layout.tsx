@@ -21,7 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           rel="stylesheet"
         />
       </head>
-      <body className="flex flex-col items-center justify-center space-y-4">
+      <body className="flex h-[100vh] w-full flex-col items-center justify-center gap-8 p-4 md:p-8">
         {/* <ThemeProvider
           attribute="class"
           defaultTheme="system"

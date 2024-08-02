@@ -7,7 +7,7 @@ const Page = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
-      className="flex h-[100vh] z-20 items-center justify-center text-center text-7xl"
+      className="z-20 flex h-[100vh] w-full items-center justify-center text-center text-7xl"
     >
       Page
     </motion.div>

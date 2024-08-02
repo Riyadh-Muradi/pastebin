@@ -18,7 +18,7 @@ const Page = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
-      className="flex w-[99%] items-center justify-center pt-[104px] text-center"
+      className="flex w- items-center justify-center text-center"
     >
       <div className="flex w-full flex-col items-center justify-center gap-y-4">
         <div className="flex w-full flex-col gap-y-4 rounded-2xl bg-white/40 px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">

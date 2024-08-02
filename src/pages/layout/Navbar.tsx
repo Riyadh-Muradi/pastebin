@@ -34,9 +34,9 @@ const Navbar = () => {
         } as Variants
       }
       transition={{ duration: 0.2 }}
-      className="fixed top-0 z-10 flex w-[99%] justify-center pt-3"
+      className="sticky top-0 z-10 w-full"
     >
-      <nav className="flex w-full items-center justify-between gap-3 rounded-2xl bg-white/40 px-2 py-4 text-center shadow-sm sm:px-6 md:px-4 lg:px-6">
+      <nav className="flex w-full items-center justify-between gap-3 rounded-2xl bg-white/80 px-2 py-4 text-center shadow-sm sm:px-6 md:px-4 lg:px-6">
         <Link href={"./"} className="text-4xl font-bold">
           <ButtonFlip
             title="Paste"
