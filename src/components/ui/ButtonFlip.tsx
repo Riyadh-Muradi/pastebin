@@ -27,7 +27,7 @@ const ButtonFlip: React.FC<ButtonFlipProps> = ({
 
   return (
     <div
-      className={`group relative z-0 flex h-9 cursor-pointer flex-col items-center overflow-hidden rounded-[999px] border p-2 ${className}`}
+      className={`group relative z-0 flex h-9 cursor-pointer flex-col items-center overflow-hidden rounded-[999px] border py-2 ${className}`}
       style={{
         borderRadius: brRadius,
         border: border === false ? "none" : `1px solid ${borderColor}`,

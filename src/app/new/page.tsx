@@ -21,9 +21,9 @@ const Page = () => {
       className="flex w-[99%] items-center justify-center pt-[104px] text-center"
     >
       <div className="flex w-full flex-col items-center justify-center gap-y-4">
-        <p className="mb-4 text-2xl">Create New Paste</p>
-
         <div className="flex w-full flex-col gap-y-4 rounded-2xl bg-white px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">
+          <p className="mb-4 text-3xl font-bold">Create New Paste</p>
+
           {/* Name and Expiration Row */}
           <div className="flex gap-x-4">
             <input
@@ -74,9 +74,9 @@ const Page = () => {
         </div>
 
         {/* Second Card for Textarea with Line Numbers */}
-        <div className="flex h-[55vh] w-full overflow-hidden rounded-2xl bg-white px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">
+        <div className="flex h-[55vh] w-full overflow-hidden rounded-2xl">
           {/* Line numbers */}
-          <div className="flex flex-col items-end p-1 text-sm text-gray-500">
+          <div className="flex flex-col items-end rounded-l-2xl bg-[#F1F2F6] p-1 px-2 py-4 pl-4 text-sm text-gray-500 shadow-sm">
             {lineNumbers.map((number) => (
               <span key={number} className="mt-[2px] text-sm leading-[0.9]">
                 {number}
@@ -87,7 +87,7 @@ const Page = () => {
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="w-full resize-none bg-transparent p-1 text-base leading-[0.9] text-black outline-none"
+            className="w-full resize-none bg-[#E5E7EB] p-1 px-2 py-4 text-base leading-[0.9] text-black shadow-sm outline-none"
             placeholder="Paste your code here..."
           ></textarea>
         </div>
