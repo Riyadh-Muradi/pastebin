@@ -1,6 +1,6 @@
 "use client";
 
-import ButtonFlip from "@/components/ui/ButtonFlip";
+import ButtonFlip from "@/components/ButtonFlip";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
@@ -50,15 +50,14 @@ const Hero = () => {
           </span>
           code, notes, and snippets.
         </h1>
-        <p className="text-lg tracking-tight text-gray-700">
-          Paste is a simple and easy-to-use text sharing platform.
-          <br />
-          Paste your code, notes, and snippets and share it with others.
+        <p className="max-w-2xl text-lg tracking-tight text-gray-700">
+          Paste is a simple and easy-to-use text sharing platform. Paste your
+          code, notes, and snippets and share it with others.
         </p>
-        <Link href="./">
+        <Link href="/new">
           <span className="relative flex items-start">
             <ButtonFlip
-              className="text-3xl"
+              className="text-2xl"
               title="Create a new paste"
               borderRadius="8px"
               color="#000"

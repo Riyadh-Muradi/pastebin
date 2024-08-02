@@ -1,6 +1,6 @@
 "use client";
 
-import ButtonFlip from "@/components/ui/ButtonFlip";
+import ButtonFlip from "@/components/ButtonFlip";
 import { navigationLinks } from "@/data/data";
 import { useMotionValueEvent, motion, useScroll } from "framer-motion";
 import type { Variants } from "framer-motion";

@@ -18,7 +18,7 @@ const Page = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
-      className="flex w- items-center justify-center text-center"
+      className="flex w-full items-center justify-center text-center"
     >
       <div className="flex w-full flex-col items-center justify-center gap-y-4">
         <div className="flex w-full flex-col gap-y-4 rounded-2xl bg-white/40 px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">
@@ -64,7 +64,6 @@ const Page = () => {
           </div>
 
           {/* Filename Input */}
-
           <div className="flex justify-between gap-x-4">
             <input
               type="text"
@@ -87,8 +86,7 @@ const Page = () => {
         </div>
 
         {/* Second Card for Textarea with Line Numbers */}
-        <div className="flex h-[55vh] w-full overflow-hidden rounded-2xl">
-          {/* Line numbers */}
+        <div className="flex h-[43vh] w-full overflow-hidden rounded-2xl">
           <div className="flex flex-col items-end rounded-l-2xl bg-[#F1F2F6] bg-opacity-60 p-1 px-2 py-4 pl-4 text-sm text-gray-500 shadow-sm">
             {lineNumbers.map((number) => (
               <span key={number} className="mt-[2px] text-sm leading-[0.9]">

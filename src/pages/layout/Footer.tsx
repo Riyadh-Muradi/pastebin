@@ -1,5 +1,5 @@
 "use client";
-import ButtonFlip from "@/components/ui/ButtonFlip";
+import ButtonFlip from "@/components/ButtonFlip";
 import { footerLinks } from "@/data/data";
 import Link from "next/link";
 import React from "react";

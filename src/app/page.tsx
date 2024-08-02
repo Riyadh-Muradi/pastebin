@@ -8,7 +8,7 @@ import Page from "@/pages/Page";
 export default function Home() {
   return (
     <SmoothScroll>
-      <main className="flex w-full flex-1 flex-col items-start justify-center">
+      <main className="flex h-full w-full flex-1 flex-col items-start justify-center">
         <Hero />
         <Page />
       </main>
