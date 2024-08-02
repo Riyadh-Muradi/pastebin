@@ -45,3 +45,36 @@
     font-family: "Nunito", sans-serif;
   }
 }
+
+@layer base {
+  html.lenis,
+  html.lenis body {
+    @apply h-auto;
+  }
+
+  .lenis.lenis-smooth {
+    @apply scroll-auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    @apply overscroll-contain;
+  }
+
+  .lenis.lenis-stopped {
+    @apply overflow-hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    @apply pointer-events-none;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

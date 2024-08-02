@@ -21,22 +21,22 @@ const Page = () => {
       className="flex w-[99%] items-center justify-center pt-[104px] text-center"
     >
       <div className="flex w-full flex-col items-center justify-center gap-y-4">
-        <div className="flex w-full flex-col gap-y-4 rounded-2xl bg-white px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">
+        <div className="flex w-full flex-col gap-y-4 rounded-2xl bg-white/40 px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">
           <p className="mb-4 text-3xl font-bold">Create New Paste</p>
 
           {/* Name and Expiration Row */}
-          <div className="flex gap-x-4">
+          <div className="flex justify-between gap-x-4">
             <input
               type="text"
               value={pasteName}
               onChange={(e) => setPasteName(e.target.value)}
               placeholder="Paste Name"
-              className="w-1/2 resize-none bg-transparent p-1 text-base text-black outline-none"
+              className="bg-transparent p-1 text-base text-black outline-none"
             />
             <select
               value={expiration}
               onChange={(e) => setExpiration(e.target.value)}
-              className="w-1/2 resize-none bg-transparent p-1 text-base text-black outline-none"
+              className="bg-transparent p-1 text-base text-black outline-none"
             >
               <option value="never">Never Expire</option>
               <option value="1hour">1 Hour</option>
@@ -45,18 +45,18 @@ const Page = () => {
           </div>
 
           {/* Description and Visibility Row */}
-          <div className="flex gap-x-4">
+          <div className="flex justify-between gap-x-4">
             <input
               type="text"
               value={pasteDescription}
               onChange={(e) => setPasteDescription(e.target.value)}
               placeholder="Paste Description"
-              className="w-1/2 resize-none bg-transparent p-1 text-base text-black outline-none"
+              className="bg-transparent p-1 text-base text-black outline-none"
             />
             <select
               value={visibility}
               onChange={(e) => setVisibility(e.target.value)}
-              className="w-1/2 resize-none bg-transparent p-1 text-base text-black outline-none"
+              className="bg-transparent p-1 text-base text-black outline-none"
             >
               <option value="public">Public</option>
               <option value="private">Private</option>
@@ -64,19 +64,32 @@ const Page = () => {
           </div>
 
           {/* Filename Input */}
-          <input
-            type="text"
-            value={filename}
-            onChange={(e) => setFilename(e.target.value)}
-            placeholder="Filename / File Extension"
-            className="w-full resize-none bg-transparent p-1 text-base text-black outline-none"
-          />
+
+          <div className="flex justify-between gap-x-4">
+            <input
+              type="text"
+              value={filename}
+              onChange={(e) => setFilename(e.target.value)}
+              placeholder="File extention"
+              className="bg-transparent p-1 text-base text-black outline-none"
+            />
+            <select
+              value={expiration}
+              onChange={(e) => setExpiration(e.target.value)}
+              className="bg-transparent p-1 text-base text-black outline-none"
+            >
+              <option value="never">Auto</option>
+              <option value="1hour">TSX</option>
+              <option value="1day">JS</option>
+              <option value="1day">Python</option>
+            </select>
+          </div>
         </div>
 
         {/* Second Card for Textarea with Line Numbers */}
         <div className="flex h-[55vh] w-full overflow-hidden rounded-2xl">
           {/* Line numbers */}
-          <div className="flex flex-col items-end rounded-l-2xl bg-[#F1F2F6] p-1 px-2 py-4 pl-4 text-sm text-gray-500 shadow-sm">
+          <div className="flex flex-col items-end rounded-l-2xl bg-[#F1F2F6] bg-opacity-60 p-1 px-2 py-4 pl-4 text-sm text-gray-500 shadow-sm">
             {lineNumbers.map((number) => (
               <span key={number} className="mt-[2px] text-sm leading-[0.9]">
                 {number}
@@ -87,7 +100,7 @@ const Page = () => {
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="w-full resize-none bg-[#E5E7EB] p-1 px-2 py-4 text-base leading-[0.9] text-black shadow-sm outline-none"
+            className="w-full resize-none bg-[#E5E7EB] bg-opacity-60 p-1 px-2 py-4 text-base leading-[0.9] text-black shadow-sm outline-none"
             placeholder="Paste your code here..."
           ></textarea>
         </div>
