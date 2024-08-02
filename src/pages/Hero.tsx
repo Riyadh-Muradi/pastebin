@@ -23,10 +23,15 @@ const Hero = () => {
   };
 
   return (
-    <section className="flex h-full w-full items-center justify-between">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
+      className="flex h-full w-full items-center justify-between"
+    >
       {/* Text Content */}
-      <div className="flex max-w-4xl flex-col justify-center space-y-4 rounded-2xl bg-white/40 px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">
-        <h1 className="text-5xl tracking-tight text-black sm:text-7xl">
+      <div className="flex h-[45vh] max-w-4xl flex-col justify-center space-y-4 rounded-2xl bg-white/40 px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">
+        <h1 className="text-6xl tracking-tight text-black sm:text-7xl">
           <span className="relative whitespace-nowrap text-black">
             <motion.svg
               aria-hidden="true"
@@ -50,14 +55,14 @@ const Hero = () => {
           </span>
           code, notes, and snippets.
         </h1>
-        <p className="max-w-2xl text-lg tracking-tight text-gray-700">
+        <p className="max-w-2xl text-2xl tracking-tight text-gray-700">
           Paste is a simple and easy-to-use text sharing platform. Paste your
           code, notes, and snippets and share it with others.
         </p>
         <Link href="/new">
           <span className="relative flex items-start">
             <ButtonFlip
-              className="text-2xl"
+              className="text-3xl"
               title="Create a new paste"
               borderRadius="8px"
               color="#000"
@@ -69,7 +74,7 @@ const Hero = () => {
       </div>
       {/* Placeholder Box */}
       {/* Second Card for Textarea with Line Numbers */}
-      <div className="flex h-[25vh] flex-1 overflow-hidden rounded-2xl bg-[#F1F2F6] bg-opacity-60 shadow-sm">
+      <div className="flex h-[45vh] flex-1 overflow-hidden rounded-2xl bg-[#F1F2F6] bg-opacity-60 shadow-sm">
         {/* Line numbers */}
         <div className="flex flex-col items-end p-1 px-2 py-4 pl-4 text-sm text-gray-500">
           {lineNumbers.map((number) => (
@@ -88,7 +93,7 @@ const Hero = () => {
           ></textarea>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

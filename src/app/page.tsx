@@ -11,6 +11,7 @@ export default function Home() {
       <main className="flex h-full w-full flex-1 flex-col items-start justify-center">
         <Hero />
         <Page />
+        <Page />
       </main>
     </SmoothScroll>
   );

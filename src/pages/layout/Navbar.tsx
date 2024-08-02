@@ -14,7 +14,7 @@ const Navbar = () => {
 
   useMotionValueEvent(scrollY, "change", (y) => {
     const difference = y - lastYRef.current;
-    if (Math.abs(difference) > 180) {
+    if (Math.abs(difference) > 10) {
       setHidden(difference > 0);
       lastYRef.current = y;
     }
@@ -33,10 +33,15 @@ const Navbar = () => {
           peeking: { y: "0%", cursor: "pointer" },
         } as Variants
       }
-      transition={{ duration: 0.2 }}
-      className="sticky top-0 z-10 w-full"
+      transition={{ duration: 0.5 }}
+      className="sticky top-0 z-50 w-full pt-3"
     >
-      <nav className="flex w-full items-center justify-between gap-3 rounded-2xl bg-white/80 px-2 py-4 text-center shadow-sm sm:px-6 md:px-4 lg:px-6">
+      <motion.nav
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
+        className="flex w-full items-center justify-between gap-3 rounded-2xl bg-white/80 px-2 py-4 text-center shadow-sm sm:px-6 md:px-4 lg:px-6"
+      >
         <Link href={"./"} className="text-4xl font-bold">
           <ButtonFlip
             title="Paste"
@@ -60,7 +65,7 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-      </nav>
+      </motion.nav>
     </motion.div>
   );
 };
