@@ -4,7 +4,7 @@ export default function BentoGrid() {
       <div className="relative z-10 grid grid-cols-6 gap-3">
         {/* First card */}
         <div className="relative col-span-full overflow-hidden rounded-2xl border bg-background p-8 sm:col-span-3 lg:col-span-2">
-          1
+          Work in progress 1
         </div>
 
         {/* Second card */}
