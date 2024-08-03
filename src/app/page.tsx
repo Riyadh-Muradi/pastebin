@@ -1,11 +1,8 @@
 "use client";
 import SmoothScroll from "@/components/SmoothScroll";
-import BentoGrid from "@/pages/BentoGrid";
-import FAQ from "@/pages/FAQ";
-import Hero from "@/pages/Hero";
-import Footer from "@/pages/layout/Footer";
-import Navbar from "@/pages/layout/Navbar";
-import Page from "@/pages/Page";
+import BentoGrid from "@/components/pages/BentoGrid";
+import FAQ from "@/components/pages/FAQ";
+import Hero from "@/components/pages/Hero";
 
 export default function Home() {
   return (
