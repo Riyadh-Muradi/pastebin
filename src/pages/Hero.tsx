@@ -30,7 +30,7 @@ const Hero = () => {
       className="flex h-full w-full items-center justify-between"
     >
       {/* Text Content */}
-      <div className="flex h-[45vh] max-w-4xl flex-col justify-center space-y-4 rounded-2xl bg-white/40 px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">
+      <div className="flex h-[35vh] max-w-4xl flex-col justify-center space-y-4 rounded-2xl bg-white/40 px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6">
         <h1 className="text-6xl tracking-tight text-black sm:text-7xl">
           <span className="relative whitespace-nowrap text-black">
             <motion.svg
@@ -74,7 +74,7 @@ const Hero = () => {
       </div>
       {/* Placeholder Box */}
       {/* Second Card for Textarea with Line Numbers */}
-      <div className="flex h-[45vh] flex-1 overflow-hidden rounded-2xl bg-[#F1F2F6] bg-opacity-60 shadow-sm">
+      <div className="flex h-[35vh] flex-1 overflow-hidden rounded-2xl bg-[#F1F2F6] bg-opacity-80 shadow-sm">
         {/* Line numbers */}
         <div className="flex flex-col items-end p-1 px-2 py-4 pl-4 text-sm text-gray-500">
           {lineNumbers.map((number) => (
@@ -84,7 +84,7 @@ const Hero = () => {
           ))}
         </div>
         {/* Textarea Container */}
-        <div className="flex-1 bg-[#E5E7EB] bg-opacity-60 p-1 px-2 py-4 pl-2">
+        <div className="flex-1 bg-[#E5E7EB] bg-opacity-80 p-1 px-2 py-4 pl-2">
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}

@@ -14,7 +14,7 @@ export default function Home() {
         <Hero />
         <FAQ />
         <BentoGrid />
-        <Page />
+        {/* <Page /> */}
       </main>
     </SmoothScroll>
   );

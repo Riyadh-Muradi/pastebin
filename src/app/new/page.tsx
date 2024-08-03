@@ -87,7 +87,7 @@ const Page = () => {
 
         {/* Second Card for Textarea with Line Numbers */}
         <div className="flex h-[43vh] w-full overflow-hidden rounded-2xl">
-          <div className="flex flex-col items-end rounded-l-2xl bg-[#F1F2F6] bg-opacity-60 p-1 px-2 py-4 pl-4 text-sm text-gray-500 shadow-sm">
+          <div className="flex flex-col items-end rounded-l-2xl bg-[#F1F2F6] bg-opacity-80 p-1 px-2 py-4 pl-4 text-sm text-gray-500 shadow-sm">
             {lineNumbers.map((number) => (
               <span key={number} className="mt-[2px] text-sm leading-[0.9]">
                 {number}
@@ -98,7 +98,7 @@ const Page = () => {
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="w-full resize-none bg-[#E5E7EB] bg-opacity-60 p-1 px-2 py-4 text-base leading-[0.9] text-black shadow-sm outline-none"
+            className="w-full resize-none bg-[#E5E7EB] bg-opacity-80 p-1 px-2 py-4 text-base leading-[0.9] text-black shadow-sm outline-none"
             placeholder="Paste your code here..."
           ></textarea>
         </div>

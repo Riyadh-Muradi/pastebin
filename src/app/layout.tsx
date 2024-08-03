@@ -4,6 +4,7 @@ import Navbar from "@/pages/layout/Navbar";
 import Footer from "@/pages/layout/Footer";
 
 import { Nunito } from "next/font/google";
+import NavbarNew from "@/pages/layout/NavbarNew";
 
 const Font = Nunito({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" className={Font.className}>
       <head></head>
       <body className="flex h-[100vh] w-full flex-col gap-8 p-4 md:p-8">
-        <Navbar />
+        <NavbarNew />
         {children}
         <Footer />
         <span className="fixed right-0 top-0 z-[-1] h-full w-full">
