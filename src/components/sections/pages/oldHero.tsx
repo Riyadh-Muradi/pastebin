@@ -2,6 +2,7 @@
 
 import ButtonFlip from "@/components/ButtonFlip";
 import CodeEditor from "@/components/PasteArea";
+import { useDrawAnimation } from "@/lib/hooks/useDrawAnimation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,17 +12,8 @@ const Hero = () => {
   const lineCount = text.split("\n").length;
   const lineNumbers = Array.from({ length: lineCount }, (_, i) => i + 1);
 
-  const draw = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        pathLength: { delay: 0.5, type: "spring", duration: 2, bounce: 0 },
-        opacity: { delay: 0.5, duration: 1 },
-      },
-    },
-  };
+  // Use the custom hook to get the draw animation
+  const draw = useDrawAnimation();
 
   return (
     <motion.section
