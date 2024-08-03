@@ -82,10 +82,6 @@ const Page = () => {
               <option value="python">Python</option>
             </select>
           </div>
-
-          <span className="relative flex justify-end">
-            <ButtonFlip className="text-3xl" title="Post" border={false} />
-          </span>
         </div>
         {/* Code Editor */}
         <CodeEditor
@@ -95,6 +91,12 @@ const Page = () => {
           lineNumberClassName="bg-white/40"
           textareaClassName="bg-gray-200/60"
         />
+        {/* Action Buttons */}
+        <div className="mt-4 flex gap-x-4">
+          <button disabled>
+            <ButtonFlip className="text-3xl" title="Post" border={false} />
+          </button>
+        </div>
       </div>
     </motion.div>
   );
