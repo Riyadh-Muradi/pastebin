@@ -1,70 +1,16 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import ButtonFlip from "@/components/ButtonFlip";
+import useScrollSync from "@/lib/hooks/useScrollSync";
 
 const Page = () => {
-  const [text, setText] = useState("");
-  const [filename, setFilename] = useState("");
+  const [text] = useState("");
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const lineNumbersRef = useRef<HTMLDivElement | null>(null);
 
-  const handleViewRaw = () => {
-    const rawWindow = window.open("", "_blank");
-    if (rawWindow) {
-      rawWindow.document.write("<pre>" + text + "</pre>");
-      rawWindow.document.close();
-    }
-  };
-
-  const handleDownload = () => {
-    const blob = new Blob([text], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = filename || "code.txt";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(text).then(
-      () => alert("Copied to clipboard!"),
-      (err) => console.error("Failed to copy text: ", err),
-    );
-  };
-
-  useEffect(() => {
-    if (lineNumbersRef.current && textareaRef.current) {
-      lineNumbersRef.current.scrollTop = textareaRef.current.scrollTop;
-    }
-  }, [text]);
-
-  useEffect(() => {
-    const syncScroll = () => {
-      if (textareaRef.current && lineNumbersRef.current) {
-        lineNumbersRef.current.scrollTop = textareaRef.current.scrollTop;
-      }
-    };
-
-    const handleScroll = () => {
-      syncScroll();
-    };
-
-    if (textareaRef.current) {
-      textareaRef.current.addEventListener("scroll", handleScroll);
-    }
-
-    return () => {
-      if (textareaRef.current) {
-        textareaRef.current.removeEventListener("scroll", handleScroll);
-      }
-    };
-  }, []);
+  useScrollSync(textareaRef, lineNumbersRef);
 
   return (
     <motion.div
@@ -98,35 +44,14 @@ const Page = () => {
 
         {/* Action Buttons */}
         <div className="mt-4 flex gap-x-4">
-          <button onClick={handleViewRaw}>
-            <ButtonFlip
-              className="text-3xl"
-              title="View Raw"
-              borderRadius="8px"
-              color="#000"
-              border={false}
-              textColor=""
-            />{" "}
+          <button disabled>
+            <ButtonFlip className="text-3xl" title="Download" border={false} />
           </button>
-          <button onClick={handleDownload}>
-            <ButtonFlip
-              className="text-3xl"
-              title="Download"
-              borderRadius="8px"
-              color="#000"
-              border={false}
-              textColor=""
-            />
+          <button disabled>
+            <ButtonFlip className="text-3xl" title="Copy" border={false} />
           </button>
-          <button onClick={handleCopy}>
-            <ButtonFlip
-              className="text-3xl"
-              title="Copy"
-              borderRadius="8px"
-              color="#000"
-              border={false}
-              textColor=""
-            />{" "}
+          <button disabled>
+            <ButtonFlip className="text-3xl" title="View raw" border={false} />
           </button>
         </div>
       </div>

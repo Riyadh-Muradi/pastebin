@@ -65,10 +65,7 @@ const Hero = () => {
             <ButtonFlip
               className="text-3xl"
               title="Create a new paste"
-              borderRadius="8px"
-              color="#000"
               border={false}
-              textColor=""
             />
           </span>
         </Link>

@@ -15,14 +15,7 @@ const NotFound = () => {
         className="inline-flex items-center justify-center rounded-2xl py-2"
         href={"/"}
       >
-        <ButtonFlip
-          className="text-3xl"
-          title="Go Home"
-          borderRadius="8px"
-          color="#000"
-          border={false}
-          textColor=""
-        />
+        <ButtonFlip className="text-3xl" title="Go Home" border={false} />
       </Link>
     </div>
   );

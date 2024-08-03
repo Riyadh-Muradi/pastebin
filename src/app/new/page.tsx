@@ -84,14 +84,7 @@ const Page = () => {
           </div>
 
           <span className="relative flex justify-end">
-            <ButtonFlip
-              className="text-3xl"
-              title="Post"
-              borderRadius="8px"
-              color="#000"
-              border={false}
-              textColor=""
-            />
+            <ButtonFlip className="text-3xl" title="Post" border={false} />
           </span>
         </div>
         {/* Code Editor */}

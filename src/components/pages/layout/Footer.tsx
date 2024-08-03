@@ -18,14 +18,7 @@ const Footer = () => {
       <div className="flex flex-1 justify-end space-x-4 text-xl">
         {footerLinks.map((link, index) => (
           <Link key={index} href={link.href}>
-            <ButtonFlip
-              className="text-xl"
-              title={link.name}
-              borderRadius="8px"
-              color="#000"
-              border={false}
-              textColor={""}
-            />
+            <ButtonFlip className="text-xl" title={link.name} border={false} />
           </Link>
         ))}
       </div>

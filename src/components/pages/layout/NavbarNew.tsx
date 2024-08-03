@@ -14,25 +14,12 @@ const NavbarNew = () => {
       className="z-50 flex w-full items-center justify-between gap-3 rounded-2xl bg-white/40 px-2 py-4 text-center shadow-sm sm:px-6 md:px-4 lg:px-6"
     >
       <Link href={"./"} className="text-4xl font-bold">
-        <ButtonFlip
-          title="Paste"
-          borderRadius="8px"
-          color="#000"
-          border={false}
-          textColor={""}
-        />
+        <ButtonFlip title="Paste" border={false} />
       </Link>
       <div className="flex items-center justify-center gap-3 p-2 text-xl">
         {navigationLinks.map((link) => (
           <Link key={link.name} href={link.href}>
-            <ButtonFlip
-              className="text-xl"
-              title={link.name}
-              borderRadius="8px"
-              color="#000"
-              border={false}
-              textColor={""}
-            />
+            <ButtonFlip className="text-xl" title={link.name} border={false} />
           </Link>
         ))}
       </div>
