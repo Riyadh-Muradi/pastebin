@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import ButtonFlip from "@/components/ButtonFlip";
+import CodeEditor from "@/components/PasteArea";
 
 const Page = () => {
   const [text, setText] = useState("");
@@ -9,9 +11,6 @@ const Page = () => {
   const [filename, setFilename] = useState("");
   const [expiration, setExpiration] = useState("never");
   const [visibility, setVisibility] = useState("public");
-
-  const lineCount = text.split("\n").length;
-  const lineNumbers = Array.from({ length: lineCount }, (_, i) => i + 1);
 
   return (
     <motion.div
@@ -31,12 +30,12 @@ const Page = () => {
               value={pasteName}
               onChange={(e) => setPasteName(e.target.value)}
               placeholder="Paste Name"
-              className="bg-transparent p-1 text-base text-black outline-none"
+              className="w-full bg-transparent p-2 text-base text-black outline-none"
             />
             <select
               value={expiration}
               onChange={(e) => setExpiration(e.target.value)}
-              className="bg-transparent p-1 text-base text-black outline-none"
+              className="w-1/4 bg-transparent p-2 text-base text-black outline-none"
             >
               <option value="never">Never Expire</option>
               <option value="1hour">1 Hour</option>
@@ -51,12 +50,12 @@ const Page = () => {
               value={pasteDescription}
               onChange={(e) => setPasteDescription(e.target.value)}
               placeholder="Paste Description"
-              className="bg-transparent p-1 text-base text-black outline-none"
+              className="w-full bg-transparent p-2 text-base text-black outline-none"
             />
             <select
               value={visibility}
               onChange={(e) => setVisibility(e.target.value)}
-              className="bg-transparent p-1 text-base text-black outline-none"
+              className="w-1/4 bg-transparent p-2 text-base text-black outline-none"
             >
               <option value="public">Public</option>
               <option value="private">Private</option>
@@ -69,39 +68,40 @@ const Page = () => {
               type="text"
               value={filename}
               onChange={(e) => setFilename(e.target.value)}
-              placeholder="File extention"
-              className="bg-transparent p-1 text-base text-black outline-none"
+              placeholder="File extension"
+              className="w-full bg-transparent p-2 text-base text-black outline-none"
             />
             <select
               value={expiration}
               onChange={(e) => setExpiration(e.target.value)}
-              className="bg-transparent p-1 text-base text-black outline-none"
+              className="w-1/4 bg-transparent p-2 text-base text-black outline-none"
             >
               <option value="never">Auto</option>
-              <option value="1hour">TSX</option>
-              <option value="1day">JS</option>
-              <option value="1day">Python</option>
+              <option value="tsx">TSX</option>
+              <option value="js">JS</option>
+              <option value="python">Python</option>
             </select>
           </div>
-        </div>
 
-        {/* Second Card for Textarea with Line Numbers */}
-        <div className="flex h-[43vh] w-full overflow-hidden rounded-2xl">
-          <div className="flex flex-col items-end rounded-l-2xl bg-[#F1F2F6] bg-opacity-80 p-1 px-2 py-4 pl-4 text-sm text-gray-500 shadow-sm">
-            {lineNumbers.map((number) => (
-              <span key={number} className="mt-[2px] text-sm leading-[0.9]">
-                {number}
-              </span>
-            ))}
-          </div>
-          {/* Textarea */}
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            className="w-full resize-none bg-[#E5E7EB] bg-opacity-80 p-1 px-2 py-4 text-base leading-[0.9] text-black shadow-sm outline-none"
-            placeholder="Paste your code here..."
-          ></textarea>
+          <span className="relative flex justify-end">
+            <ButtonFlip
+              className="text-3xl"
+              title="Post"
+              borderRadius="8px"
+              color="#000"
+              border={false}
+              textColor=""
+            />
+          </span>
         </div>
+        {/* Code Editor */}
+        <CodeEditor
+          text={text}
+          setText={setText}
+          className="h-[35vh] w-full"
+          lineNumberClassName="bg-white/40"
+          textareaClassName="bg-gray-200/60"
+        />
       </div>
     </motion.div>
   );

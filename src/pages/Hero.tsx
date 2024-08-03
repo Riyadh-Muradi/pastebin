@@ -1,6 +1,7 @@
 "use client";
 
 import ButtonFlip from "@/components/ButtonFlip";
+import CodeEditor from "@/components/PasteArea";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
@@ -60,7 +61,7 @@ const Hero = () => {
           code, notes, and snippets and share it with others.
         </p>
         <Link href="/new">
-          <span className="relative flex items-start">
+          <span className="relative flex justify-start">
             <ButtonFlip
               className="text-3xl"
               title="Create a new paste"
@@ -72,27 +73,14 @@ const Hero = () => {
           </span>
         </Link>
       </div>
-      {/* Placeholder Box */}
-      {/* Second Card for Textarea with Line Numbers */}
-      <div className="flex h-[35vh] flex-1 overflow-hidden rounded-2xl bg-[#F1F2F6] bg-opacity-80 shadow-sm">
-        {/* Line numbers */}
-        <div className="flex flex-col items-end p-1 px-2 py-4 pl-4 text-sm text-gray-500">
-          {lineNumbers.map((number) => (
-            <span key={number} className="mt-[2px] text-sm leading-[0.9]">
-              {number}
-            </span>
-          ))}
-        </div>
-        {/* Textarea Container */}
-        <div className="flex-1 bg-[#E5E7EB] bg-opacity-80 p-1 px-2 py-4 pl-2">
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            className="h-full w-full resize-none bg-transparent text-base leading-[0.9] text-black outline-none"
-            placeholder="Paste your code here..."
-          ></textarea>
-        </div>
-      </div>
+      {/* Code Editor */}
+      <CodeEditor
+        text={text}
+        setText={setText}
+        className="h-[35vh] flex-1"
+        lineNumberClassName="bg-white/40"
+        textareaClassName="bg-gray-200/60"
+      />
     </motion.section>
   );
 };
