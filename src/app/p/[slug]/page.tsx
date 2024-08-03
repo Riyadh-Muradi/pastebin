@@ -1,106 +1,137 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
+import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import ButtonFlip from "@/components/ButtonFlip";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
+const Page = () => {
+  const [text, setText] = useState("");
+  const [filename, setFilename] = useState("");
 
-// Type declarations
-interface PasteData {
-  title: string;
-  content: string;
-  type: string;
-  error?: string;
-}
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const lineNumbersRef = useRef<HTMLDivElement | null>(null);
 
-export default function Preview() {
-  const [slug, setSlug] = useState<string | null>(null); // Use state to handle the slug
-  const [title, setTitle] = useState<string>("Untitled");
-  const [content, setContent] = useState<string>("");
-  const [type, setType] = useState<string>("text");
-  const [isEdit, setIsEdit] = useState<boolean>(false);
-  const [notFound, setNotFound] = useState<boolean>(false);
+  const handleViewRaw = () => {
+    const rawWindow = window.open("", "_blank");
+    if (rawWindow) {
+      rawWindow.document.write("<pre>" + text + "</pre>");
+      rawWindow.document.close();
+    }
+  };
+
+  const handleDownload = () => {
+    const blob = new Blob([text], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename || "code.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text).then(
+      () => alert("Copied to clipboard!"),
+      (err) => console.error("Failed to copy text: ", err),
+    );
+  };
 
   useEffect(() => {
-    const slugFromURL = window.location.pathname.split("/").pop(); // Extract slug from URL
-    setSlug(slugFromURL || null);
+    if (lineNumbersRef.current && textareaRef.current) {
+      lineNumbersRef.current.scrollTop = textareaRef.current.scrollTop;
+    }
+  }, [text]);
 
-    const fetchData = async () => {
-      try {
-        const res = await fetch(`/api/pastes?p=${slugFromURL}`);
-        const data: PasteData = await res.json();
-
-        if (data.error === "Paste not found.") {
-          setNotFound(true);
-        } else {
-          setTitle(data.title);
-          setContent(data.content);
-          setType(data.type);
-        }
-      } catch (error) {
-        console.error("Unknown error:", error);
+  useEffect(() => {
+    const syncScroll = () => {
+      if (textareaRef.current && lineNumbersRef.current) {
+        lineNumbersRef.current.scrollTop = textareaRef.current.scrollTop;
       }
     };
 
-    if (slugFromURL) fetchData();
+    const handleScroll = () => {
+      syncScroll();
+    };
+
+    if (textareaRef.current) {
+      textareaRef.current.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (textareaRef.current) {
+        textareaRef.current.removeEventListener("scroll", handleScroll);
+      }
+    };
   }, []);
 
-  if (notFound) return <div>Paste not found</div>; // Simple not found message
-
   return (
-    <main className="flex h-screen flex-col">
-      <header className="flex justify-between bg-zinc-950 px-4 py-2">
-        <div className="flex items-center gap-2">
-          <Link
-            href="/"
-            className="rounded-md border border-white p-2"
-            title="Home"
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
+      className="flex w-full items-center justify-center text-center"
+    >
+      <div className="flex w-full flex-col items-center justify-center gap-y-4">
+        <div className="flex h-[65vh] w-full overflow-hidden rounded-2xl">
+          {/* Line Numbers */}
+          <div
+            ref={lineNumbersRef}
+            className="flex flex-col items-end overflow-auto rounded-l-2xl bg-white/40 p-1 px-2 py-4 pl-6 text-sm text-gray-500 shadow-sm"
           >
-            Home
-          </Link>
-          {isEdit ? (
-            <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="New Paste"
-              className="rounded-md bg-transparent py-1 pl-2 text-sm text-gray-500"
-            />
-          ) : (
-            <div className="flex flex-col items-start justify-center text-xs sm:flex-row sm:items-center">
-              <span className="rounded-md bg-transparent pl-2 text-sm text-slate-500">
-                {title && title.length > 8 ? title.slice(0, 8) : title}
+            {text.split("\n").map((_, i) => (
+              <span key={i} className="mt-[2px] text-sm leading-[0.9]">
+                {i + 1}
               </span>
-              <strong className="pl-2 text-xs text-slate-200">[{type}]</strong>
-            </div>
-          )}
+            ))}
+          </div>
+          {/* Textarea */}
+          <textarea
+            ref={textareaRef}
+            value={text}
+            readOnly
+            className="w-full resize-none bg-gray-100/80 p-1 px-2 py-4 text-base leading-[0.9] text-black shadow-sm outline-none"
+            placeholder="Pasted code"
+          ></textarea>
         </div>
 
-        <div className="flex gap-2">
-          {isEdit ? (
-            <button
-              onClick={() => setIsEdit(false)}
-              className="rounded-md border border-white bg-teal-600 px-3 py-2 transition-colors hover:bg-teal-700"
-            >
-              Save
-            </button>
-          ) : (
-            <button
-              onClick={() => setIsEdit(true)}
-              className="rounded-md border border-white bg-teal-600 px-3 py-2 transition-colors hover:bg-teal-500"
-            >
-              Edit
-            </button>
-          )}
+        {/* Action Buttons */}
+        <div className="mt-4 flex gap-x-4">
+          <button onClick={handleViewRaw}>
+            <ButtonFlip
+              className="text-3xl"
+              title="View Raw"
+              borderRadius="8px"
+              color="#000"
+              border={false}
+              textColor=""
+            />{" "}
+          </button>
+          <button onClick={handleDownload}>
+            <ButtonFlip
+              className="text-3xl"
+              title="Download"
+              borderRadius="8px"
+              color="#000"
+              border={false}
+              textColor=""
+            />
+          </button>
+          <button onClick={handleCopy}>
+            <ButtonFlip
+              className="text-3xl"
+              title="Copy"
+              borderRadius="8px"
+              color="#000"
+              border={false}
+              textColor=""
+            />{" "}
+          </button>
         </div>
-      </header>
-
-      <div className="flex h-full max-h-96 flex-col sm:max-h-full">
-        <textarea
-          className="h-full w-full bg-zinc-800 p-4 text-white"
-          readOnly={!isEdit}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
       </div>
-    </main>
+    </motion.div>
   );
-}
+};
+
+export default Page;

@@ -1,11 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from "react";
 
 interface CodeEditorProps {
   text: string;
   setText: (text: string) => void;
-  className?: string; // Optional custom class names for the outer container
-  lineNumberClassName?: string; // Optional custom class names for the line numbers
-  textareaClassName?: string; // Optional custom class names for the textarea
+  className?: string;
+  lineNumberClassName?: string;
+  textareaClassName?: string;
 }
 
 const CodeEditor = ({
