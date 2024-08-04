@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useDrawAnimation } from "@/lib/hooks/useDrawAnimation";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { Button } from "@/components/ui/Buttons/button";
+import { Button } from "@/components/ui/buttons/button";
 import CodeBlock from "@/components/CodeBlock";
 
 const Hero = () => {

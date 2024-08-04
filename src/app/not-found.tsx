@@ -1,5 +1,5 @@
 "use client";
-import ButtonFlip from "@/components/ButtonFlip";
+import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
 import Link from "next/link";
 
 const NotFound = () => {

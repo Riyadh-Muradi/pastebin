@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ButtonFlip from "@/components/ButtonFlip";
+import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
 import { navigationLinks } from "@/data/data";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";

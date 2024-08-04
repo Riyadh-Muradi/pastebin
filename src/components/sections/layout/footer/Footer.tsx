@@ -1,6 +1,6 @@
 "use client";
 
-import ButtonFlip from "@/components/ButtonFlip";
+import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
 import { footerLinks } from "@/data/data";
 import Link from "next/link";
 import { motion } from "framer-motion"; // Correct import
