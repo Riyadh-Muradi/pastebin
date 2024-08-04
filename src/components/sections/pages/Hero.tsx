@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { useDrawAnimation } from "@/lib/hooks/useDrawAnimation";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
-import CodeEditor from "@/components/PasteArea";
+import CodeEditor from "@/components/CodeBlock";
+import CodeBlock from "@/components/CodeBlock";
 
 const Hero = () => {
   const [text, setText] = useState("");
@@ -55,7 +56,7 @@ const Hero = () => {
           </>
         }
       >
-        <CodeEditor
+        <CodeBlock
           text={text}
           setText={setText}
           className="h-[80vh] w-[100%]"

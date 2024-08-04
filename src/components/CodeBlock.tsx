@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef } from "react";
 
-interface CodeEditorProps {
+interface CodeBlockProps {
   text: string;
   setText: (text: string) => void;
   className?: string;
@@ -9,13 +9,13 @@ interface CodeEditorProps {
   textareaClassName?: string;
 }
 
-const CodeEditor = ({
+const CodeBlock = ({
   text,
   setText,
   className = "",
   lineNumberClassName = "",
   textareaClassName = "",
-}: CodeEditorProps) => {
+}: CodeBlockProps) => {
   const [lineNumbers, setLineNumbers] = useState<number[]>([]);
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -73,4 +73,4 @@ const CodeEditor = ({
   );
 };
 
-export default CodeEditor;
+export default CodeBlock;
