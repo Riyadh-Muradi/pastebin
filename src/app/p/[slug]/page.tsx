@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import ButtonFlip from "@/components/ButtonFlip";
+import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
 import useScrollSync from "@/lib/hooks/useScrollSync";
 
 const Page = () => {
