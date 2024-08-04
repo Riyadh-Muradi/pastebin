@@ -38,7 +38,7 @@ const Navbar = () => {
     <motion.nav
       initial={{ opacity: 1 }}
       transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
-      className="fixed left-0 right-0 top-3 z-50 mx-auto flex items-center justify-between gap-3 rounded-2xl shadow-sm sm:px-6 md:px-4 lg:px-6"
+      className="sticky top-0 z-50 mx-auto flex items-center justify-between gap-3 rounded-2xl shadow-sm sm:px-6 md:px-4 lg:px-6"
       animate={controls}
     >
       <Link href={"./"} className="text-4xl">

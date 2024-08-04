@@ -6,6 +6,7 @@ import { useDrawAnimation } from "@/lib/hooks/useDrawAnimation";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/buttons/button";
 import CodeBlock from "@/components/CodeBlock";
+import Link from "next/link";
 
 const Hero = () => {
   const [text, setText] = useState("");
@@ -50,7 +51,7 @@ const Hero = () => {
               it with others.
             </p>
             <Button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
-              <span className="">Create a new paste</span>
+              <Link href={"/new"} className="">Create a new paste</Link>
             </Button>
           </>
         }
