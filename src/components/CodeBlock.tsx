@@ -39,9 +39,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             <input
               type="text"
               placeholder="Paste name"
-              className="w-full bg-transparent p-2 text-base text-black outline-none"
+              className="w-full bg-transparent p-2 text-base text-gray-500 outline-none"
             />
-            <select className="w-1/4 bg-transparent p-2 text-base text-black outline-none">
+            <select className="w-1/4 bg-transparent p-2 text-base text-gray-500 outline-none">
               <option value="never">Never Expire</option>
               <option value="1hour">1 Hour</option>
               <option value="1day">1 Day</option>
@@ -52,9 +52,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             <input
               type="text"
               placeholder="Paste description"
-              className="w-full bg-transparent p-2 text-base text-black outline-none"
+              className="w-full bg-transparent p-2 text-base text-gray-500 outline-none"
             />
-            <select className="w-1/4 bg-transparent p-2 text-base text-black outline-none">
+            <select className="w-1/4 bg-transparent p-2 text-base text-gray-500 outline-none">
               <option value="public">Public</option>
               <option value="private">Private</option>
             </select>
@@ -68,7 +68,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               disabled={!isPasswordEnabled}
-              className={`w-full bg-transparent p-2 text-base text-black outline-none ${
+              className={`w-full bg-transparent p-2 text-base text-gray-500 outline-none ${
                 !isPasswordEnabled ? "cursor-not-allowed opacity-50" : ""
               }`}
             />
@@ -83,7 +83,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       </div>
       <div className="mb-2 flex items-center justify-between rounded-2xl bg-white/40 p-4">
         {/* Language Dropdown */}
-        <select className="rounded-2xl bg-gray-100 p-2 px-4 text-sm text-gray-500 focus:outline-none">
+        <select className="rounded-2xl bg-gray-100/40 bg-opacity-10 p-2 px-4 text-sm text-gray-500 focus:outline-none">
           <option value="TSX">TSX</option>
           <option value="JavaScript">JavaScript</option>
           <option value="Python">Python</option>
@@ -95,7 +95,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
 
         {/* Copy and Download Buttons */}
         <div className="flex gap-4">
-          <button className="text-sm text-gray-500">Copy</button>
+          <button className="text-base text-gray-500">Copy</button>
           <button className="text-sm text-gray-500">Download</button>
         </div>
       </div>
