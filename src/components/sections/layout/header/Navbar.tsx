@@ -25,7 +25,7 @@ const Navbar = () => {
 
   useEffect(() => {
     controls.start({
-      width: scrolled ? "50%" : "70%",
+      width: scrolled ? "80%" : "85%",
       transition: { duration: 0.5, ease: "easeInOut" },
     });
   }, [scrolled, controls]);

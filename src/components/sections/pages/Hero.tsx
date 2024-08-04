@@ -14,11 +14,11 @@ const Hero = () => {
   const draw = useDrawAnimation();
 
   return (
-    <section id="hero" className="relative mx-auto mt-32 w-[80%] text-center">
+    <section id="hero" className="relative mx-auto mt-32 w-full text-center">
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="-translate-y-4 text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent  sm:text-6xl md:text-7xl lg:text-8xl">
+            <h1 className="-translate-y-4 text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent sm:text-6xl md:text-7xl lg:text-8xl">
               <span className="relative whitespace-nowrap text-black">
                 <motion.svg
                   aria-hidden="true"
@@ -51,7 +51,9 @@ const Hero = () => {
               it with others.
             </p>
             <Button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
-              <Link href={"/new"} className="">Create a new paste</Link>
+              <Link href={"/new"} className="">
+                Create a new paste
+              </Link>
             </Button>
           </>
         }

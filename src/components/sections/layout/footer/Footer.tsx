@@ -6,7 +6,7 @@ import { footerLinks } from "@/data/data";
 
 const Footer = () => {
   return (
-    <footer className="mx-auto w-[50%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2">
+    <footer className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2">
       <div className="relative z-40 flex flex-col rounded-2xl bg-white/40 px-[3rem] py-[1rem] text-2xl shadow-sm sm:px-6 md:px-4 lg:px-6">
         <div className="flex justify-between gap-4 p-4 px-8 py-8">
           <div className="flex flex-col gap-4">
