@@ -6,7 +6,7 @@ import { navigationLinks } from "@/data/data";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 
-const NavbarNew = () => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const controls = useAnimation();
 
@@ -55,4 +55,4 @@ const NavbarNew = () => {
   );
 };
 
-export default NavbarNew;
+export default Navbar;

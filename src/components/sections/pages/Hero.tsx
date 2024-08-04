@@ -18,7 +18,7 @@ const Hero = () => {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="animate-fade-in -translate-y-4 text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent [--animation-delay:200ms] dark:from-white dark:to-white/40 sm:text-6xl md:text-7xl lg:text-8xl">
+            <h1 className="-translate-y-4 text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent dark:from-white dark:to-white/40 sm:text-6xl md:text-7xl lg:text-8xl">
               <span className="relative whitespace-nowrap text-black">
                 <motion.svg
                   aria-hidden="true"
@@ -44,13 +44,13 @@ const Hero = () => {
               <br className="hidden md:block" /> and snippets.
             </h1>
 
-            <p className="animate-fade-in -translate-y-4 text-balance text-lg tracking-tight text-gray-400 [--animation-delay:400ms] md:text-xl">
+            <p className="-translate-y-4 text-balance text-lg tracking-tight md:text-xl">
               Paste is a simple and easy-to-use text sharing platform. Paste
               your code,
               <br className="hidden md:block" /> notes, and snippets and share
               it with others.
             </p>
-            <Button className="animate-fade-in mt-8 -translate-y-4 gap-1 rounded-2xl bg-gray-200/60 text-black ease-in-out [--animation-delay:600ms] hover:bg-gray-200/80">
+            <Button className="mt-8 -translate-y-4 gap-1 rounded-2xl bg-gray-200/60 text-black hover:bg-gray-200/80">
               <span>Get Started for free </span>
             </Button>
           </>
