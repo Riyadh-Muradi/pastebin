@@ -2,17 +2,11 @@
 
 import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
 import Link from "next/link";
-import { motion } from "framer-motion"; // Correct import
 import { footerLinks } from "@/data/data";
 
 const Footer = () => {
   return (
-    <motion.footer
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
-      className="mx-auto w-[50%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10"
-    >
+    <footer className="mx-auto w-[50%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2">
       <div className="relative z-40 flex flex-col rounded-2xl bg-white/40 px-[3rem] py-[1rem] text-2xl shadow-sm sm:px-6 md:px-4 lg:px-6">
         <div className="flex justify-between gap-4 p-4 px-8 py-8">
           <div className="flex flex-col gap-4">
@@ -21,7 +15,7 @@ const Footer = () => {
                 <ButtonFlip title="Paste" border={false} />
               </span>
             </Link>
-            <p className="max-w-lg text-gray-500">
+            <p className="max-w-sm text-gray-500">
               Paste is a simple and easy-to-use text sharing platform. Paste
               your code, notes, and snippets and share it with others.
             </p>
@@ -59,7 +53,7 @@ const Footer = () => {
           </span>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 };
 
