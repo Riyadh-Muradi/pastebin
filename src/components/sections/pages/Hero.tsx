@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useDrawAnimation } from "@/lib/hooks/useDrawAnimation";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
-import CodeEditor from "@/components/CodeBlock";
 import CodeBlock from "@/components/CodeBlock";
 
 const Hero = () => {
@@ -59,7 +58,7 @@ const Hero = () => {
         <CodeBlock
           text={text}
           setText={setText}
-          className="h-[80vh] w-[100%]"
+          className="h-[60vh] w-[100%]"
           lineNumberClassName="bg-white/40"
           textareaClassName="bg-gray-200/60"
         />

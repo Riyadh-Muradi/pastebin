@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ButtonFlip from "@/components/ButtonFlip";
-import CodeEditor from "@/components/PasteArea";
+import CodeBlock from "@/components/CodeBlock";
 
 const Page = () => {
   const [text, setText] = useState("");
@@ -84,7 +84,7 @@ const Page = () => {
           </div>
         </div>
         {/* Code Editor */}
-        <CodeEditor
+        <CodeBlock
           text={text}
           setText={setText}
           className="h-[35vh] w-full"

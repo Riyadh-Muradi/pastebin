@@ -1,6 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import useScrollSync from "@/lib/hooks/useScrollSync";
 import React, { useState, useEffect, useRef } from "react";
+import useScrollSync from "@/lib/hooks/useScrollSync";
 
 interface CodeBlockProps {
   text: string;
@@ -10,15 +9,16 @@ interface CodeBlockProps {
   textareaClassName?: string;
 }
 
-const CodeBlock = ({
+const CodeBlock: React.FC<CodeBlockProps> = ({
   text,
   setText,
   className = "",
   lineNumberClassName = "",
   textareaClassName = "",
-}: CodeBlockProps) => {
+}) => {
   const [lineNumbers, setLineNumbers] = useState<number[]>([]);
-  const [language, setLanguage] = useState<string>("TSX");
+  const [isPasswordEnabled, setIsPasswordEnabled] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>("");
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const lineNumbersRef = useRef<HTMLDivElement | null>(null);
@@ -28,18 +28,62 @@ const CodeBlock = ({
     setLineNumbers(Array.from({ length: lineCount }, (_, i) => i + 1));
   }, [text]);
 
-  // Use the custom hook to sync the scroll
   useScrollSync(textareaRef, lineNumbersRef);
 
   return (
     <div>
       <div className="mb-2 flex items-center justify-between rounded-2xl bg-white/40 p-4">
+        <div className="flex w-full flex-col justify-between gap-y-4">
+          <div className="flex w-full justify-between gap-4">
+            {/* Name */}
+            <input
+              type="text"
+              placeholder="Paste name"
+              className="w-full bg-transparent p-2 text-base text-black outline-none"
+            />
+            <select className="w-1/4 bg-transparent p-2 text-base text-black outline-none">
+              <option value="never">Never Expire</option>
+              <option value="1hour">1 Hour</option>
+              <option value="1day">1 Day</option>
+            </select>
+          </div>
+          <div className="flex w-full justify-between gap-x-4">
+            {/* Description */}
+            <input
+              type="text"
+              placeholder="Paste description"
+              className="w-full bg-transparent p-2 text-base text-black outline-none"
+            />
+            <select className="w-1/4 bg-transparent p-2 text-base text-black outline-none">
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+            </select>
+          </div>
+          <div className="flex w-full justify-between gap-x-4">
+            {/* Password */}
+
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={!isPasswordEnabled}
+              className={`w-full bg-transparent p-2 text-base text-black outline-none ${
+                !isPasswordEnabled ? "cursor-not-allowed opacity-50" : ""
+              }`}
+            />
+            <input
+              type="checkbox"
+              checked={isPasswordEnabled}
+              onChange={() => setIsPasswordEnabled(!isPasswordEnabled)}
+              className="scale-150"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="mb-2 flex items-center justify-between rounded-2xl bg-white/40 p-4">
         {/* Language Dropdown */}
-        <select
-          value={language}
-          onChange={(e) => setLanguage(e.target.value)}
-          className="rounded-2xl bg-gray-100 p-2 px-4 text-sm text-gray-500 focus:outline-none"
-        >
+        <select className="rounded-2xl bg-gray-100 p-2 px-4 text-sm text-gray-500 focus:outline-none">
           <option value="TSX">TSX</option>
           <option value="JavaScript">JavaScript</option>
           <option value="Python">Python</option>
