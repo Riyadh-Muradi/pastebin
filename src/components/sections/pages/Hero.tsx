@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useDrawAnimation } from "@/lib/hooks/useDrawAnimation";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Buttons/button";
 import CodeBlock from "@/components/CodeBlock";
 
 const Hero = () => {
@@ -49,8 +49,8 @@ const Hero = () => {
               <br className="hidden md:block" /> notes, and snippets and share
               it with others.
             </p>
-            <Button className="mt-8 -translate-y-4 gap-1 rounded-2xl bg-gray-200/60 text-black hover:bg-gray-200/80">
-              <span>Get Started for free </span>
+            <Button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
+              <span className="">Create a new paste</span>
             </Button>
           </>
         }

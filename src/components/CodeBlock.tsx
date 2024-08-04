@@ -95,8 +95,8 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
 
         {/* Copy and Download Buttons */}
         <div className="flex gap-4">
+          <button className="text-base text-gray-500">Download</button>
           <button className="text-base text-gray-500">Copy</button>
-          <button className="text-sm text-gray-500">Download</button>
         </div>
       </div>
 
@@ -118,7 +118,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           ref={textareaRef}
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className={`w-full resize-none bg-gray-100/40 bg-opacity-10 p-1 px-2 py-4 text-base leading-[0.9] text-black shadow-sm outline-none ${textareaClassName}`}
+          className={`w-full resize-none bg-gray-100/40 bg-opacity-10 p-1 px-2 py-4 text-base leading-[0.9] text-gray-500 shadow-sm outline-none ${textareaClassName}`}
         ></textarea>
       </div>
     </div>
