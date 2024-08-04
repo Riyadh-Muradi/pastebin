@@ -3,7 +3,7 @@
 import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
 import Link from "next/link";
 import { motion } from "framer-motion"; // Correct import
-import { footerLinks, footerSocials } from "@/data/data";
+import { footerLinks } from "@/data/data";
 
 const Footer = () => {
   return (
@@ -17,16 +17,16 @@ const Footer = () => {
         <div className="flex justify-between gap-4 p-4 px-8 py-8">
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <span className="self-center whitespace-nowrap text-2xl">
+              <span className="self-center whitespace-nowrap text-3xl">
                 <ButtonFlip title="Paste" border={false} />
               </span>
             </Link>
-            <p className="max-w-lg">
+            <p className="max-w-lg text-gray-500">
               Paste is a simple and easy-to-use text sharing platform. Paste
               your code, notes, and snippets and share it with others.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:gap-10">
+          <div className="grid grid-cols-3 gap-8 sm:gap-10">
             {footerLinks.map((nav) => (
               <div key={nav.label}>
                 <h2 className="mb-6 text-sm uppercase tracking-tighter text-gray-900">
@@ -49,14 +49,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-row items-center justify-between gap-2 px-8 py-4">
-          <div className="mt-0 flex justify-center space-x-5 text-sm text-black">
-            {footerSocials.map((social) => (
-              <Link key={social.name} href={social.href}>
-                <ButtonFlip title={social.name} border={false} />
-              </Link>
-            ))}
-          </div>
+        <div className="flex flex-row items-center justify-center gap-2 px-8 py-4">
           <span className="text-center text-sm text-gray-500">
             Copyright © {new Date().getFullYear()}{" "}
             <Link href="/" className="cursor-pointer">

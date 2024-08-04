@@ -28,23 +28,19 @@ export const footerLinks = [
     ],
   },
 
-  // {
-  //   label: "Community",
-  //   items: [
-  //     {
-  //       href: "/",
-  //       name: "Discord",
-  //     },
-  //     {
-  //       href: "/",
-  //       name: "Twitter",
-  //     },
-  //     {
-  //       href: "mailto:paste@gmail.com",
-  //       name: "Email",
-  //     },
-  //   ],
-  // },
+  {
+    label: "Community",
+    items: [
+      {
+        href: "/",
+        name: "Discord",
+      },
+      {
+        href: "/",
+        name: "Twitter",
+      },
+    ],
+  },
   {
     label: "Legal",
     items: [
@@ -58,18 +54,5 @@ export const footerLinks = [
         name: "Privacy",
       },
     ],
-  },
-];
-
-export const footerSocials = [
-  {
-    href: "",
-    name: "Discord",
-    icon: "Discord",
-  },
-  {
-    href: "",
-    name: "Twitter",
-    icon: "Twitter",
   },
 ];
