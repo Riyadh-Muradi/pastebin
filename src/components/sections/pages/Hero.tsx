@@ -38,7 +38,7 @@ const Hero = () => {
                     stroke="black"
                   />
                 </motion.svg>
-                <span className="relative pr-4 text-black">Paste</span>
+                <span className="relative pr-4 text-black">Pastee</span>
               </span>
               code, notes,
               <br className="hidden md:block" /> and snippets.
