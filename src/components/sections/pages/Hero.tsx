@@ -52,9 +52,9 @@ const Hero = () => {
             </p>
 
             <Link href={"/new"}>
-              <Button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
+              <button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
                 Create a new paste
-              </Button>
+              </button>
             </Link>
           </>
         }
