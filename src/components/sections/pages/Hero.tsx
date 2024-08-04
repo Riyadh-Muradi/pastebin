@@ -6,7 +6,6 @@ import { useDrawAnimation } from "@/lib/hooks/useDrawAnimation";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import CodeBlock from "@/components/CodeBlock";
 import Link from "next/link";
-import { Button } from "@/components/ui/buttons/button";
 
 const Hero = () => {
   const [text, setText] = useState("");
