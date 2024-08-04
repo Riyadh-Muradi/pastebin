@@ -41,10 +41,10 @@ const Navbar = () => {
       className="sticky top-0 z-50 mx-auto flex items-center justify-between gap-3 rounded-2xl shadow-sm sm:px-6 md:px-4 lg:px-6"
       animate={controls}
     >
-      <Link href={"./"} className="text-2xl">
+      <Link href={"./"} className="text-3xl">
         <ButtonFlip title="Paste" border={false} />
       </Link>
-      <div className="flex items-center justify-center gap-3 p-2 text-sm">
+      <div className="flex items-center justify-center gap-3 p-2 text-xl">
         {navbarLinks.map((link) => (
           <Link key={link.name} href={link.href}>
             <ButtonFlip title={link.name} border={false} />
