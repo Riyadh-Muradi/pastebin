@@ -27,7 +27,7 @@ const Navbar = () => {
 
   useEffect(() => {
     controls.start({
-      backgroundColor: isScrolled ? "rgba(255, 255, 255, .5)" : "transparent",
+      backgroundColor: isScrolled ? "rgba(255, 255, 255, .4)" : "transparent",
       padding: isScrolled ? "0.5rem 2rem" : "1rem 3rem",
       width: isScrolled ? "50%" : "80%",
       transition: { duration: 0.5, ease: "easeInOut" },

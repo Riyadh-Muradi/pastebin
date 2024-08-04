@@ -60,7 +60,7 @@ export const Header = ({ translate, titleComponent }: any) => {
       style={{
         translateY: translate,
       }}
-      className="div mx-auto max-w-5xl text-center"
+      className="mx-auto max-w-5xl text-center"
     >
       {titleComponent}
     </motion.div>
@@ -84,7 +84,7 @@ export const Card = ({
         scale,
       }}
     >
-      <div className="mx-auto h-full w-full overflow-hidden rounded-2xl bg-gray-100 p-2 dark:bg-zinc-900">
+      <div className="mx-auto h-full w-full overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2 dark:bg-zinc-900">
         {children}
       </div>
     </motion.div>

@@ -53,7 +53,7 @@ const CodeBlock = ({
       {/* Line Numbers */}
       <div
         ref={lineNumbersRef}
-        className={`flex flex-col items-end overflow-auto rounded-l-2xl bg-white/40 p-1 px-2 py-4 pl-6 text-sm text-gray-500 shadow-sm ${lineNumberClassName}`}
+        className={`flex flex-col items-end overflow-auto rounded-l-2xl bg-white/40 bg-opacity-10 p-1 px-2 py-4 pl-6 text-sm text-gray-500 shadow-sm ${lineNumberClassName}`}
       >
         {lineNumbers.map((number) => (
           <span key={number} className="mt-[2px] text-sm leading-[0.9]">
@@ -66,8 +66,7 @@ const CodeBlock = ({
         ref={textareaRef}
         value={text}
         onChange={(e) => setText(e.target.value)}
-        className={`w-full resize-none bg-gray-100/80 p-1 px-2 py-4 text-base leading-[0.9] text-black shadow-sm outline-none ${textareaClassName}`}
-        placeholder="Paste your code here..."
+        className={`w-full resize-none bg-gray-100/40 bg-opacity-10 p-1 px-2 py-4 text-base leading-[0.9] text-black shadow-sm outline-none ${textareaClassName}`}
       ></textarea>
     </div>
   );
