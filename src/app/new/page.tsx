@@ -9,7 +9,7 @@ const Page = () => {
   return (
     <>
       <SmoothScroll>
-        <div className="mx-auto w-[80%]">
+        <div className="mx-auto h-full w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2">
           <CodeBlock
             text={text}
             setText={setText}
