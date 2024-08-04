@@ -50,11 +50,12 @@ const Hero = () => {
               <br className="hidden md:block" /> notes, and snippets and share
               it with others.
             </p>
-            <Button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
-              <Link href={"/new"} className="">
+
+            <Link href={"/new"}>
+              <Button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
                 Create a new paste
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </>
         }
       >
