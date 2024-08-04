@@ -7,7 +7,7 @@ const Page = () => {
 
   return (
     <section id="hero" className="relative mx-auto mt-32 w-[80%] text-center">
-      <div className="mx-auto h-full w-full overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2 dark:bg-zinc-900">
+      <div className="mx-auto h-full w-full overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2 ">
         <CodeBlock
           text={text}
           setText={setText}

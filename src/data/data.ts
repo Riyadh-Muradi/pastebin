@@ -1,9 +1,75 @@
-export const navigationLinks = [
+export const navbarLinks = [
   { name: "About", href: "#about" },
+  { name: "FAQ", href: "#faq" },
+  { name: "Pricing", href: "#pricing" },
   { name: "Docs", href: "#projects" },
 ];
 
 export const footerLinks = [
-  { name: "Privacy Policy", href: "/privacy-policy" },
-  { name: "Terms of Service", href: "/terms-of-service" },
+  {
+    label: "Product",
+    items: [
+      {
+        name: "About",
+        href: "#about",
+      },
+      {
+        name: "FAQ",
+        href: "#faq",
+      },
+      {
+        name: "Pricing",
+        href: "#pricing",
+      },
+      {
+        name: "Docs",
+        href: "#docs",
+      },
+    ],
+  },
+
+  // {
+  //   label: "Community",
+  //   items: [
+  //     {
+  //       href: "/",
+  //       name: "Discord",
+  //     },
+  //     {
+  //       href: "/",
+  //       name: "Twitter",
+  //     },
+  //     {
+  //       href: "mailto:paste@gmail.com",
+  //       name: "Email",
+  //     },
+  //   ],
+  // },
+  {
+    label: "Legal",
+    items: [
+      {
+        href: "/terms",
+        name: "Terms",
+      },
+
+      {
+        href: "/privacy",
+        name: "Privacy",
+      },
+    ],
+  },
+];
+
+export const footerSocials = [
+  {
+    href: "",
+    name: "Discord",
+    icon: "Discord",
+  },
+  {
+    href: "",
+    name: "Twitter",
+    icon: "Twitter",
+  },
 ];

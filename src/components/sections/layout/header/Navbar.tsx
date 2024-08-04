@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
-import { navigationLinks } from "@/data/data";
+import { navbarLinks } from "@/data/data";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 
@@ -41,13 +41,13 @@ const Navbar = () => {
       className="sticky top-0 z-50 mx-auto flex items-center justify-between gap-3 rounded-2xl shadow-sm sm:px-6 md:px-4 lg:px-6"
       animate={controls}
     >
-      <Link href={"./"} className="text-4xl">
+      <Link href={"./"} className="text-2xl">
         <ButtonFlip title="Paste" border={false} />
       </Link>
-      <div className="flex items-center justify-center gap-3 p-2 text-xl">
-        {navigationLinks.map((link) => (
+      <div className="flex items-center justify-center gap-3 p-2 text-sm">
+        {navbarLinks.map((link) => (
           <Link key={link.name} href={link.href}>
-            <ButtonFlip className="text-xl" title={link.name} border={false} />
+            <ButtonFlip title={link.name} border={false} />
           </Link>
         ))}
       </div>

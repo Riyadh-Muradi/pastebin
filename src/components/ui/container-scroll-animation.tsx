@@ -84,7 +84,7 @@ export const Card = ({
         scale,
       }}
     >
-      <div className="mx-auto h-full w-full overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2 dark:bg-zinc-900">
+      <div className="mx-auto h-full w-full overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2 ">
         {children}
       </div>
     </motion.div>
