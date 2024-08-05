@@ -1,10 +1,10 @@
 import { motion, Variants } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import React, { useState } from "react";
-import { AccordionItemProps, AccordionProps } from "../../../types";
+import { accordionItemProps, accordionProps } from "../../../types";
 import { accordionItems } from "@/config/accordion";
 
-const AccordionItem: React.FC<AccordionItemProps> = ({
+const AccordionItem: React.FC<accordionItemProps> = ({
   title,
   content,
   isExpanded,
@@ -60,7 +60,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
   );
 };
 
-const Accordion: React.FC<AccordionProps> = ({ items }) => {
+const Accordion: React.FC<accordionProps> = ({ items }) => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   const handleToggle = (index: number) => {

@@ -1,6 +1,6 @@
 import { featuresProps } from "../types";
 
-export const Features: featuresProps[] = [
+export const features: featuresProps[] = [
   {
     id: 1,
     name: "Syntax highlighting",

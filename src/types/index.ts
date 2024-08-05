@@ -3,7 +3,7 @@ export interface navbarProps {
   href: string;
 }
 
-export interface CodeBlockProps {
+export interface codeblockProps {
   text: string;
   setText: (text: string) => void;
   className?: string;
@@ -25,14 +25,14 @@ export interface pricingProps {
   link: string;
   features: string[];
 }
-export interface AccordionItemProps {
+export interface accordionItemProps {
   title: string;
   content: string;
   isExpanded: boolean;
   onToggle: () => void;
 }
 
-export interface AccordionProps {
+export interface accordionProps {
   items: Array<{
     title: string;
     content: string;
