@@ -1,10 +1,10 @@
 "use client";
 import Navbar from "./layout/header/Navbar";
-import Footer from "./layout/footer/Footer";
 import Hero from "./pages/Hero";
-import Page from "./pages/Page";
-import FAQ from "./pages/FAQ";
-import Pricing from "./pages/Pricing";
 import Features from "./pages/Features";
+import Pricing from "./pages/Pricing";
+import FAQ from "./pages/FAQ";
+import Page from "./pages/Page";
+import Footer from "./layout/footer/Footer";
 
-export { Navbar, Hero, Features, Pricing, FAQ, Footer, Page };
+export { Navbar, Hero, Features, Pricing, FAQ, Page, Footer };

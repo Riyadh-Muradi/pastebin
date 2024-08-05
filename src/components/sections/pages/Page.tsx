@@ -3,14 +3,11 @@ import { motion } from "framer-motion";
 
 const Page = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 0.5, ease: "easeInOut" }}
-      className="flex h-[100vh] w-full items-center justify-center text-center text-7xl"
-    >
-      Page
-    </motion.div>
+    <div className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2">
+      <div className="relative flex flex-col rounded-2xl bg-white/40 px-[3rem] py-[1rem] text-center text-9xl shadow-sm sm:px-6 md:px-4 lg:px-6">
+        Page
+      </div>
+    </div>
   );
 };
 

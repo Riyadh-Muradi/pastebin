@@ -1,5 +1,5 @@
 "use client";
-import { FAQ, Features, Hero, Pricing } from "@/components/sections";
+import { FAQ, Features, Hero, Page, Pricing } from "@/components/sections";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export default function Home() {
@@ -10,6 +10,7 @@ export default function Home() {
         <Features />
         <Pricing />
         <FAQ />
+        <Page />
       </main>
     </SmoothScroll>
   );
