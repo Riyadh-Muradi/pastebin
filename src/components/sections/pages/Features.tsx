@@ -20,12 +20,6 @@ const HoverSpring = () => {
                 key={feature.id}
                 className="text-left"
               >
-                <Image
-                  src={feature.image}
-                  width={30}
-                  height={30}
-                  alt={feature.name}
-                />
                 <div className="text-sm font-medium text-black">
                   {feature.name}
                 </div>

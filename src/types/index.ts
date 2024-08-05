@@ -15,7 +15,6 @@ export interface featuresProps {
   id: number;
   name: string;
   description: string;
-  image: string;
 }
 
 export interface pricingProps {
