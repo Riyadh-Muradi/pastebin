@@ -2,7 +2,7 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
-import useScrollSync from "@/lib/hooks/useScrollSync";
+import useScrollSync from "../../../hooks/useScrollSync";
 
 const Page = () => {
   const [text] = useState("");

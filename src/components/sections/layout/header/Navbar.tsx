@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
-import { navbarLinks } from "@/data/data";
 import Link from "next/link";
+import { navbarLinks } from "../../../../config/features";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useDrawAnimation } from "@/lib/hooks/useDrawAnimation";
+import { useDrawAnimation } from "../../../hooks/useDrawAnimation";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import CodeBlock from "@/components/CodeBlock";
 import Link from "next/link";

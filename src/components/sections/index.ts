@@ -4,6 +4,7 @@ import Footer from "./layout/footer/Footer";
 import Hero from "./pages/Hero";
 import Page from "./pages/Page";
 import FAQ from "./pages/FAQ";
-import BentoGrid from "./pages/BentoGrid";
+import Pricing from "./pages/Pricing";
+import Features from "./pages/Features";
 
-export { Navbar, Footer, Hero, Page, FAQ, BentoGrid };
+export { Navbar, Hero, Features, Pricing, FAQ, Footer, Page };

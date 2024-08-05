@@ -2,7 +2,7 @@
 
 import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
 import Link from "next/link";
-import { footerLinks } from "@/data/data";
+import { footerLinks } from "../../../../config/features";
 
 const Footer = () => {
   return (

@@ -1,79 +1,94 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import React, { useState } from "react";
+import { AccordionItemProps, AccordionProps } from "../../../types";
+import { accordionItems } from "../../../config/features";
 
-import { ArrowUpRight } from "lucide-react";
+const AccordionItem: React.FC<AccordionItemProps> = ({
+  title,
+  content,
+  isExpanded,
+  onToggle,
+}) => {
+  const cardVariants: Variants = {
+    collapsed: {
+      height: "55px",
+      transition: { type: "spring", stiffness: 300, damping: 15 },
+    },
+    expanded: {
+      height: "auto",
+      transition: { type: "spring", stiffness: 300, damping: 15 },
+    },
+  };
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+  const contentVariants: Variants = {
+    collapsed: { opacity: 0 },
+    expanded: {
+      opacity: 1,
+      transition: { delay: 0.1 },
+    },
+  };
 
-type FAQItem = {
-  question: string;
-  answer: string;
-  link?: string;
-};
+  const chevronVariants: Variants = {
+    collapsed: { rotate: 0 },
+    expanded: { rotate: 180 },
+  };
 
-const content: FAQItem[] = [
-  {
-    question: "1",
-    answer: "1",
-    link: "./",
-  },
-  {
-    question: "2",
-    answer: "2",
-  },
-  {
-    question: "3",
-    answer: "3",
-  },
-  {
-    question: "4",
-    answer: "4",
-  },
-];
-
-const FAQ = () => {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1, delay: 1.2, ease: "easeInOut" }}
-      className="flex w-full flex-col rounded-2xl bg-white/40 px-2 py-4 shadow-sm sm:px-6 md:px-4 lg:px-6"
+      className={`my-4 h-full w-full cursor-pointer select-none overflow-hidden`}
+      variants={cardVariants}
+      initial="collapsed"
+      animate={isExpanded ? "expanded" : "collapsed"}
+      onClick={onToggle}
     >
-      <h3 className="!mt-0 text-center">Frequently Asked Questions</h3>
-      <h4 className="text-center text-muted-foreground">
-        If you have any questions, you might find the answer
-      </h4>
-      <div className="not-prose mt-4 flex flex-col gap-4 md:mt-8">
-        {content.map((item, index) => (
-          <Accordion key={index} type="single" collapsible>
-            <AccordionItem
-              value={item.question}
-              className="rounded-2xl border border-white/40 transition-all"
-            >
-              <AccordionTrigger className="text-left hover:no-underline">
-                {item.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-base md:w-3/4">
-                {item.answer}
-                {item.link && (
-                  <a
-                    href={item.link}
-                    className="mt-2 flex w-full items-center opacity-60 transition-all hover:opacity-100"
-                  >
-                    Learn more <ArrowUpRight className="ml-1" size="16" />
-                  </a>
-                )}
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        ))}
+      <div className="flex items-center justify-between p-4 text-black">
+        <h2 className="m-0 text-sm">{title}</h2>
+        <motion.div variants={chevronVariants}>
+          <ChevronDown size={18} />
+        </motion.div>
       </div>
+      <motion.div
+        className="text-md select-none px-4 py-4"
+        variants={contentVariants}
+        initial="collapsed"
+        animate={isExpanded ? "expanded" : "collapsed"}
+      >
+        <p className="m-0 text-sm text-gray-500">{content}</p>
+      </motion.div>
     </motion.div>
+  );
+};
+
+const Accordion: React.FC<AccordionProps> = ({ items }) => {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
+  return (
+    <div>
+      {items.map((item, index) => (
+        <AccordionItem
+          key={index}
+          title={item.title}
+          content={item.content}
+          isExpanded={expandedIndex === index}
+          onToggle={() => handleToggle(index)}
+        />
+      ))}
+    </div>
+  );
+};
+
+const FAQ: React.FC = () => {
+  return (
+    <div className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2">
+      <div className="relative flex flex-col rounded-2xl bg-white/40 px-[3rem] py-[1rem] text-2xl shadow-sm sm:px-6 md:px-4 lg:px-6">
+        <Accordion items={accordionItems} />
+      </div>
+    </div>
   );
 };
 

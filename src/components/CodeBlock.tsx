@@ -1,13 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import useScrollSync from "@/lib/hooks/useScrollSync";
-
-interface CodeBlockProps {
-  text: string;
-  setText: (text: string) => void;
-  className?: string;
-  lineNumberClassName?: string;
-  textareaClassName?: string;
-}
+import useScrollSync from "../hooks/useScrollSync";
+import { CodeBlockProps } from "../types";
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
   text,
