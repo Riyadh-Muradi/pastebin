@@ -1,4 +1,4 @@
-import { pricingPlans } from "@/config/pricing";
+import { pricingPlans } from "@/components/ui/config/pricing";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check } from "lucide-react";
