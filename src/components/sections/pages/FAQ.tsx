@@ -2,7 +2,7 @@ import { motion, Variants } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import React, { useState } from "react";
 import { AccordionItemProps, AccordionProps } from "../../../types";
-import { accordionItems } from "../../../config/accordion";
+import { accordionItems } from "@/config/accordion";
 
 const AccordionItem: React.FC<AccordionItemProps> = ({
   title,

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import useScrollSync from "../hooks/useScrollSync";
+import useScrollSync from "@/hooks/useScrollSync";
 import { CodeBlockProps } from "../types";
 
 const CodeBlock: React.FC<CodeBlockProps> = ({
