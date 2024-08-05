@@ -6,7 +6,7 @@ export const pricingPlans: pricingProps[] = [
     description: "Basic plan for casual users to share and store text online.",
     monthlyPrice: 0,
     annualPrice: 0,
-    link: "https://your-pastebin-service-link.com/free",
+    link: "",
     features: [
       "Unlimited public pastes",
       "Syntax highlighting for 10 languages",
@@ -20,7 +20,7 @@ export const pricingPlans: pricingProps[] = [
     description: "Enhanced features for developers and frequent users.",
     monthlyPrice: 9,
     annualPrice: 7,
-    link: "https://your-pastebin-service-link.com/pro",
+    link: "",
     features: [
       "Everything in Free plan",
       "Unlimited private pastes",
@@ -37,7 +37,7 @@ export const pricingPlans: pricingProps[] = [
       "Full customization and dedicated infrastructure for large organizations.",
     monthlyPrice: 99,
     annualPrice: 79,
-    link: "https://your-pastebin-service-link.com/enterprise",
+    link: "",
     features: [
       "Everything in Team plan",
       "Unlimited team members",
