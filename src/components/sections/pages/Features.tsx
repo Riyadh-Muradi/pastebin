@@ -1,4 +1,4 @@
-import { features } from "@/components/ui/config/features";
+import { features } from "@/config/features";
 import { motion } from "framer-motion";
 
 const HoverSpring = () => {
