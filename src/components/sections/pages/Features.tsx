@@ -1,6 +1,6 @@
+import { Features } from "@/config/features";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Features } from "../../../config/features";
 
 const HoverSpring = () => {
   return (
