@@ -1,8 +1,8 @@
 "use client";
 
 import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
+import { footerLinks } from "@/config/Footer";
 import Link from "next/link";
-import { footerLinks } from "../../../../config/features";
 
 const Footer = () => {
   return (

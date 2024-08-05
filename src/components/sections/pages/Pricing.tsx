@@ -1,8 +1,8 @@
+import { pricingPlans } from "@/config/Pricing";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { useState } from "react";
-import { pricingPlans } from "../../../config/features";
 
 const Pricing = () => {
   const [billingCycle, setBillingCycle] = useState<"M" | "A">("M");

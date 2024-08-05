@@ -1,15 +1,14 @@
-export interface AccordionItemProps {
-  title: string;
-  content: string;
-  isExpanded: boolean;
-  onToggle: () => void;
+export interface navbarProps {
+  name: string;
+  href: string;
 }
 
-export interface AccordionProps {
-  items: Array<{
-    title: string;
-    content: string;
-  }>;
+export interface CodeBlockProps {
+  text: string;
+  setText: (text: string) => void;
+  className?: string;
+  lineNumberClassName?: string;
+  textareaClassName?: string;
 }
 
 export interface featuresProps {
@@ -27,11 +26,26 @@ export interface pricingProps {
   link: string;
   features: string[];
 }
+export interface AccordionItemProps {
+  title: string;
+  content: string;
+  isExpanded: boolean;
+  onToggle: () => void;
+}
 
-export interface CodeBlockProps {
-  text: string;
-  setText: (text: string) => void;
-  className?: string;
-  lineNumberClassName?: string;
-  textareaClassName?: string;
+export interface AccordionProps {
+  items: Array<{
+    title: string;
+    content: string;
+  }>;
+}
+
+export interface footerProps {
+  label: string;
+  items: footerItemsProps[];
+}
+
+export interface footerItemsProps {
+  name: string;
+  href: string;
 }
