@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import useScrollSync from "@/hooks/useScrollSync";
 import { codeblockProps } from "../types";
+import Link from "next/link";
+import ButtonFlip from "./ui/buttons/variants/ButtonFlip";
 
 const CodeBlock: React.FC<codeblockProps> = ({
   text,
@@ -24,8 +26,8 @@ const CodeBlock: React.FC<codeblockProps> = ({
   useScrollSync(textareaRef, lineNumbersRef);
 
   return (
-    <div>
-      <div className="mb-2 flex items-center justify-between rounded-2xl bg-white/40 p-4">
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center justify-between rounded-2xl bg-white/40 p-4">
         <div className="flex w-full flex-col justify-between gap-y-4">
           <div className="flex w-full justify-between gap-4">
             {/* Name */}
@@ -74,24 +76,6 @@ const CodeBlock: React.FC<codeblockProps> = ({
           </div>
         </div>
       </div>
-      <div className="mb-2 flex items-center justify-between rounded-2xl bg-white/40 p-4">
-        {/* Language Dropdown */}
-        <select className="rounded-2xl bg-gray-100/40 bg-opacity-10 p-2 px-4 text-sm text-gray-500 focus:outline-none">
-          <option value="TSX">TSX</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="Python">Python</option>
-          <option value="Java">Java</option>
-          <option value="HTML">HTML</option>
-          <option value="CSS">CSS</option>
-          <option value="JSON">JSON</option>
-        </select>
-
-        {/* Copy and Download Buttons */}
-        <div className="flex gap-4">
-          <button className="text-base text-gray-500">Download</button>
-          <button className="text-base text-gray-500">Copy</button>
-        </div>
-      </div>
 
       <div className={`flex overflow-hidden rounded-2xl ${className}`}>
         {/* Line Numbers */}
@@ -113,6 +97,25 @@ const CodeBlock: React.FC<codeblockProps> = ({
           onChange={(e) => setText(e.target.value)}
           className={`w-full resize-none bg-gray-100/40 bg-opacity-10 p-1 px-2 py-4 text-base leading-[0.9] text-gray-500 shadow-sm outline-none ${textareaClassName}`}
         ></textarea>
+      </div>
+      <div className="flex items-center justify-between rounded-2xl bg-white/40 p-4">
+        {/* Language Dropdown */}
+        <select className="rounded-2xl bg-gray-100/40 bg-opacity-10 p-2 px-4 text-sm text-gray-500 focus:outline-none">
+          <option value="TSX">TSX</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Python">Python</option>
+          <option value="Java">Java</option>
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JSON">JSON</option>
+        </select>
+
+        {/* Copy and Download Buttons */}
+        <Link href={"/"} className="flex gap-4">
+          <button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
+            <ButtonFlip title="Create a new paste" border={false} />
+          </button>
+        </Link>
       </div>
     </div>
   );
