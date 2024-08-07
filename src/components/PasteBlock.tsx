@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { codeblockProps } from "../types";
-import { Editor as MonacoEditor } from "@monaco-editor/react";
+import { Editor } from "@monaco-editor/react";
 import ButtonFlip from "./ui/buttons/variants/ButtonFlip";
 
 const PasteBlock: React.FC<codeblockProps> = ({ className = "" }) => {
@@ -20,7 +20,7 @@ const PasteBlock: React.FC<codeblockProps> = ({ className = "" }) => {
         </div>
       </div>
       <div className={`flex overflow-hidden rounded-2xl ${className}`}>
-        <MonacoEditor
+        <Editor
           height="100%"
           language={type}
           theme="vs-dark"
@@ -29,6 +29,7 @@ const PasteBlock: React.FC<codeblockProps> = ({ className = "" }) => {
           options={{
             minimap: { enabled: false },
             readOnly: true,
+            contextmenu: false,
           }}
         />
       </div>

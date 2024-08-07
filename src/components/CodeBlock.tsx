@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { codeblockProps } from "../types";
 import ButtonFlip from "./ui/buttons/variants/ButtonFlip";
-import { Editor as MonacoEditor } from "@monaco-editor/react";
+import { Editor } from "@monaco-editor/react";
 import SelectLang from "./SelectLang";
 
 const CodeBlock: React.FC<codeblockProps> = ({ className = "" }) => {
@@ -63,7 +63,7 @@ const CodeBlock: React.FC<codeblockProps> = ({ className = "" }) => {
       </div>
 
       <div className={`flex overflow-hidden rounded-2xl ${className}`}>
-        <MonacoEditor
+        <Editor
           height="100%"
           width="100%"
           language={lang}
@@ -72,6 +72,7 @@ const CodeBlock: React.FC<codeblockProps> = ({ className = "" }) => {
           onChange={(value) => setContent(value || "")}
           options={{
             minimap: { enabled: false },
+            contextmenu: false,
           }}
         />
       </div>
