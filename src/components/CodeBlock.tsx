@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import useScrollSync from "@/hooks/useScrollSync";
 import { codeblockProps } from "../types";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import ButtonFlip from "./ui/buttons/variants/ButtonFlip";
-
+import { Editor as MonacoEditor } from "@monaco-editor/react";
+import SelectLang from "./ui/SelectLang";
 const CodeBlock: React.FC<codeblockProps> = ({
   text,
   setText,
@@ -11,19 +12,11 @@ const CodeBlock: React.FC<codeblockProps> = ({
   lineNumberClassName = "",
   textareaClassName = "",
 }) => {
-  const [lineNumbers, setLineNumbers] = useState<number[]>([]);
   const [isPasswordEnabled, setIsPasswordEnabled] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
 
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-  const lineNumbersRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const lineCount = text.split("\n").length;
-    setLineNumbers(Array.from({ length: lineCount }, (_, i) => i + 1));
-  }, [text]);
-
-  useScrollSync(textareaRef, lineNumbersRef);
+  const [content, setContent] = useState<string>("");
+  const [lang, setLang] = useState<string>("text");
 
   return (
     <div className="flex flex-col gap-4">
@@ -56,7 +49,6 @@ const CodeBlock: React.FC<codeblockProps> = ({
           </div>
           <div className="flex w-full justify-between gap-x-4">
             {/* Password */}
-
             <input
               type="password"
               placeholder="Password"
@@ -78,44 +70,29 @@ const CodeBlock: React.FC<codeblockProps> = ({
       </div>
 
       <div className={`flex overflow-hidden rounded-2xl ${className}`}>
-        {/* Line Numbers */}
-        <div
-          ref={lineNumbersRef}
-          className={`flex flex-col items-end overflow-auto rounded-l-2xl bg-white/40 bg-opacity-10 p-1 px-2 py-4 pl-6 text-sm text-gray-500 shadow-sm ${lineNumberClassName}`}
-        >
-          {lineNumbers.map((number) => (
-            <span key={number} className="mt-[2px] text-sm leading-[0.9]">
-              {number}
-            </span>
-          ))}
-        </div>
-
-        {/* Textarea */}
-        <textarea
-          ref={textareaRef}
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          className={`w-full resize-none bg-gray-100/40 bg-opacity-10 p-1 px-2 py-4 text-base leading-[0.9] text-gray-500 shadow-sm outline-none ${textareaClassName}`}
-        ></textarea>
+        <MonacoEditor
+          height="100%"
+          language={lang}
+          theme="vs-dark"
+          value={content}
+          onChange={(value) => setContent(value || "")}
+          options={{
+            minimap: { enabled: false },
+          }}
+        />
       </div>
-      <div className="mb-2 flex items-center justify-between rounded-2xl bg-white/40 p-4">
+      <div className="flex items-center justify-between rounded-2xl bg-white/40 p-4">
         {/* Language Dropdown */}
-        <select className="rounded-2xl bg-gray-100/40 bg-opacity-10 p-2 px-4 text-sm text-gray-500 focus:outline-none">
-          <option value="TSX">TSX</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="Python">Python</option>
-          <option value="Java">Java</option>
-          <option value="HTML">HTML</option>
-          <option value="CSS">CSS</option>
-          <option value="JSON">JSON</option>
-        </select>
+        <SelectLang
+          className="rounded-2xl bg-gray-100/40 bg-opacity-10 p-2 px-4 text-sm text-gray-500 focus:outline-none"
+          lang={lang}
+          onChange={(e) => setLang(e.target.value)}
+        />
 
         {/* Copy and Download Buttons */}
-        <Link href={"/new"} className="flex gap-4">
-          <button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
-            <ButtonFlip title="Create a new paste" border={false} />
-          </button>
-        </Link>
+        <button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
+          <ButtonFlip title="Create paste" border={false} />
+        </button>
       </div>
     </div>
   );
