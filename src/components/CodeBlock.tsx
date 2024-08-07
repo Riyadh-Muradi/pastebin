@@ -3,11 +3,19 @@ import { codeblockProps } from "../types";
 import ButtonFlip from "./ui/buttons/variants/ButtonFlip";
 import { Editor } from "@monaco-editor/react";
 import SelectLang from "./SelectLang";
+import { Checkbox } from "./ui/checkbox";
+import { Input } from "./ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const CodeBlock: React.FC<codeblockProps> = ({ className = "" }) => {
-  const [isPasswordEnabled, setIsPasswordEnabled] = useState<boolean>(false);
-  const [password, setPassword] = useState<string>("");
-
   const [content, setContent] = useState<string>("");
   const [lang, setLang] = useState<string>("text");
 
@@ -17,47 +25,49 @@ const CodeBlock: React.FC<codeblockProps> = ({ className = "" }) => {
         <div className="flex w-full flex-col justify-between gap-y-4">
           <div className="flex w-full justify-between gap-4">
             {/* Name */}
-            <input
+            <Input
               type="text"
+              className="border-none"
               placeholder="Paste name"
-              className="w-full bg-transparent p-2 text-base text-black outline-none"
             />
-            <select className="w-1/4 bg-transparent p-2 text-base text-black outline-none">
-              <option value="never">Never Expire</option>
-              <option value="1hour">1 Hour</option>
-              <option value="1day">1 Day</option>
-            </select>
+            <Select>
+              <SelectTrigger className="w-[180px] border-none">
+                <SelectValue placeholder="Select expire date" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="never">Never</SelectItem>
+                  <SelectItem value="hour">1 Hour</SelectItem>
+                  <SelectItem value="day">1 Day</SelectItem>
+                  <SelectItem value="week">1 Week</SelectItem>
+                  <SelectItem value="month">1 Month</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
           <div className="flex w-full justify-between gap-x-4">
             {/* Description */}
-            <input
+            <Input
               type="text"
+              className="border-none"
               placeholder="Paste description"
-              className="w-full bg-transparent p-2 text-base text-black outline-none"
             />
-            <select className="w-1/4 bg-transparent p-2 text-base text-black outline-none">
-              <option value="public">Public</option>
-              <option value="private">Private</option>
-            </select>
+            <Select>
+              <SelectTrigger className="w-[180px] border-none">
+                <SelectValue placeholder="Select privacy" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="public">Public</SelectItem>
+                  <SelectItem value="private">Private</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </div>
-          <div className="flex w-full justify-between gap-x-4">
+          <div className="flex w-full items-center justify-between gap-x-4">
             {/* Password */}
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              disabled={!isPasswordEnabled}
-              className={`w-full bg-transparent p-2 text-base text-black outline-none ${
-                !isPasswordEnabled ? "cursor-not-allowed opacity-50" : ""
-              }`}
-            />
-            <input
-              type="checkbox"
-              checked={isPasswordEnabled}
-              onChange={() => setIsPasswordEnabled(!isPasswordEnabled)}
-              className="scale-150"
-            />
+            <Input type="text" className="border-none" placeholder="Password" />
+            <Checkbox className="mr-3" />
           </div>
         </div>
       </div>

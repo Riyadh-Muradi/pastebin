@@ -1,4 +1,13 @@
 import React from "react";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface SelectLangProps {
   className?: string;
@@ -6,43 +15,46 @@ interface SelectLangProps {
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-const SelectLang: React.FC<SelectLangProps> = ({
-  className,
-  lang,
-  onChange,
-}) => {
+const SelectLang: React.FC<SelectLangProps> = ({}) => {
   return (
-    <select className={className} value={lang} onChange={onChange}>
-      <option value="text">Plain Text</option>
-      <option value="typescript">TypeScript</option>
-      <option value="javascript">JavaScript</option>
-      <option value="css">CSS</option>
-      <option value="less">LESS</option>
-      <option value="scss">SCSS</option>
-      <option value="json">JSON</option>
-      <option value="html">HTML</option>
-      <option value="xml">XML</option>
-      <option value="php">PHP</option>
-      <option value="csharp">C#</option>
-      <option value="cpp">C++</option>
-      <option value="razor">Razor</option>
-      <option value="markdown">Markdown</option>
-      <option value="diff">Diff</option>
-      <option value="java">Java</option>
-      <option value="vb">VB</option>
-      <option value="coffeescript">CoffeeScript</option>
-      <option value="handlebars">Handlebars</option>
-      <option value="batch">Batch</option>
-      <option value="pug">Pug</option>
-      <option value="fsharp">F#</option>
-      <option value="lua">Lua</option>
-      <option value="powershell">Powershell</option>
-      <option value="python">Python</option>
-      <option value="ruby">Ruby</option>
-      <option value="sass">SASS</option>
-      <option value="r">R</option>
-      <option value="objectivec">Objective-C</option>
-    </select>
+    <Select>
+      <SelectTrigger className="w-[180px] border-none">
+        <SelectValue placeholder="Select a language" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectItem value="text">text</SelectItem>
+          <SelectItem value="typescript">jypescript</SelectItem>
+          <SelectItem value="javascript">javascript</SelectItem>
+          <SelectItem value="css">css</SelectItem>
+          <SelectItem value="less">less</SelectItem>
+          <SelectItem value="scss">scss</SelectItem>
+          <SelectItem value="json">json</SelectItem>
+          <SelectItem value="html">html</SelectItem>
+          <SelectItem value="xml">xml</SelectItem>
+          <SelectItem value="php">php</SelectItem>
+          <SelectItem value="csharp">csharp</SelectItem>
+          <SelectItem value="cpp">cpp</SelectItem>
+          <SelectItem value="razor">razor</SelectItem>
+          <SelectItem value="markdown">markdown</SelectItem>
+          <SelectItem value="diff">diff</SelectItem>
+          <SelectItem value="java">java</SelectItem>
+          <SelectItem value="vb">vb</SelectItem>
+          <SelectItem value="coffeescript">coffeescript</SelectItem>
+          <SelectItem value="handlebars">handlebars</SelectItem>
+          <SelectItem value="batch">batch</SelectItem>
+          <SelectItem value="pug">pug</SelectItem>
+          <SelectItem value="fsharp">fsharp</SelectItem>
+          <SelectItem value="lua">lua</SelectItem>
+          <SelectItem value="powershell">powershell</SelectItem>
+          <SelectItem value="python">python</SelectItem>
+          <SelectItem value="ruby">ruby</SelectItem>
+          <SelectItem value="sass">sass</SelectItem>
+          <SelectItem value="r">r</SelectItem>
+          <SelectItem value="objectivec">objectivec</SelectItem>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 };
 
