@@ -25,7 +25,7 @@ export default function Home() {
         <Features />
         <Pricing />
         <FAQ />
-        <Page />
+        {/* <Page /> */}
         {/* <div>
           <h2>Fetched Data:</h2>
           <p>{data || "Loading..."}</p>
