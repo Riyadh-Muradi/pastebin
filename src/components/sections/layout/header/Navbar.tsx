@@ -46,12 +46,6 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="flex items-center justify-center gap-3 text-xl">
-          Temporary:
-          <Link href="/new">New paste</Link>
-          <Link href="/p/p">Paste</Link>
-          <Link href="/raw/p">Raw</Link>
-        </div>
       </div>
     </motion.nav>
   );
