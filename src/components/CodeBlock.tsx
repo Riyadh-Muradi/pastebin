@@ -84,9 +84,9 @@ const CodeBlock: React.FC<codeblockProps> = ({ className = "" }) => {
         />
 
         {/* Copy and Download Buttons */}
-        <button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
+        <div className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
           <ButtonFlip title="Create paste" border={false} />
-        </button>
+        </div>
       </div>
     </div>
   );

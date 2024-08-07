@@ -1,34 +1,27 @@
 "use client";
-import { useParams } from "next/navigation";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coy } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import CodeBlock from "@/components/CodeBlock";
+import SmoothScroll from "@/components/SmoothScroll";
+import PasteBlock from "@/components/PasteBlock";
 
-const CodeDisplay: React.FC = () => {
-  const { slug } = useParams(); // Using next/navigation's useParams
-  const [code, setCode] = useState<string>("");
-  const [language, setLanguage] = useState<string>("typescript");
-
-  useEffect(() => {
-    // Fetch the code snippet and language from localStorage using the paste ID (slug)
-    const storedCode = localStorage.getItem(`code-${slug}`);
-    const storedLanguage = localStorage.getItem(`language-${slug}`);
-    if (storedCode) {
-      setCode(storedCode);
-    }
-    if (storedLanguage) {
-      setLanguage(storedLanguage);
-    }
-  }, [slug]);
+const Page = () => {
+  const [text, setText] = useState("");
 
   return (
-    <div className="p-4">
-      <h1 className="mb-4 text-xl font-bold">Highlighted Code</h1>
-      <SyntaxHighlighter language={language} style={coy}>
-        {code}
-      </SyntaxHighlighter>
-    </div>
+    <>
+      <SmoothScroll>
+        <div className="mx-auto h-full w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2">
+          <PasteBlock
+            text={text}
+            setText={setText}
+            className="h-[80vh] w-[100%]"
+            lineNumberClassName="bg-white/40"
+            textareaClassName="bg-gray-200/60"
+          />
+        </div>
+      </SmoothScroll>
+    </>
   );
 };
 
-export default CodeDisplay;
+export default Page;
