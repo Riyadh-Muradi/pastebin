@@ -98,7 +98,7 @@ const CodeBlock: React.FC<codeblockProps> = ({
           className={`w-full resize-none bg-gray-100/40 bg-opacity-10 p-1 px-2 py-4 text-base leading-[0.9] text-gray-500 shadow-sm outline-none ${textareaClassName}`}
         ></textarea>
       </div>
-      <div className="flex items-center justify-between rounded-2xl bg-white/40 p-4">
+      <div className="mb-2 flex items-center justify-between rounded-2xl bg-white/40 p-4">
         {/* Language Dropdown */}
         <select className="rounded-2xl bg-gray-100/40 bg-opacity-10 p-2 px-4 text-sm text-gray-500 focus:outline-none">
           <option value="TSX">TSX</option>
@@ -111,7 +111,7 @@ const CodeBlock: React.FC<codeblockProps> = ({
         </select>
 
         {/* Copy and Download Buttons */}
-        <Link href={"/"} className="flex gap-4">
+        <Link href={"/new"} className="flex gap-4">
           <button className="rounded-2xl bg-white/80 px-4 py-2 text-xl text-black hover:bg-gray-100">
             <ButtonFlip title="Create a new paste" border={false} />
           </button>
