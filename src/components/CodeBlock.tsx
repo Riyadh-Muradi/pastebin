@@ -1,17 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import useScrollSync from "@/hooks/useScrollSync";
+import { useState } from "react";
 import { codeblockProps } from "../types";
-import { useRouter } from "next/navigation";
 import ButtonFlip from "./ui/buttons/variants/ButtonFlip";
 import { Editor as MonacoEditor } from "@monaco-editor/react";
-import SelectLang from "./ui/SelectLang";
-const CodeBlock: React.FC<codeblockProps> = ({
-  text,
-  setText,
-  className = "",
-  lineNumberClassName = "",
-  textareaClassName = "",
-}) => {
+import SelectLang from "./SelectLang";
+
+const CodeBlock: React.FC<codeblockProps> = ({ className = "" }) => {
   const [isPasswordEnabled, setIsPasswordEnabled] = useState<boolean>(false);
   const [password, setPassword] = useState<string>("");
 
@@ -27,9 +20,9 @@ const CodeBlock: React.FC<codeblockProps> = ({
             <input
               type="text"
               placeholder="Paste name"
-              className="w-full bg-transparent p-2 text-base text-gray-500 outline-none"
+              className="w-full bg-transparent p-2 text-base text-black outline-none"
             />
-            <select className="w-1/4 bg-transparent p-2 text-base text-gray-500 outline-none">
+            <select className="w-1/4 bg-transparent p-2 text-base text-black outline-none">
               <option value="never">Never Expire</option>
               <option value="1hour">1 Hour</option>
               <option value="1day">1 Day</option>
@@ -40,9 +33,9 @@ const CodeBlock: React.FC<codeblockProps> = ({
             <input
               type="text"
               placeholder="Paste description"
-              className="w-full bg-transparent p-2 text-base text-gray-500 outline-none"
+              className="w-full bg-transparent p-2 text-base text-black outline-none"
             />
-            <select className="w-1/4 bg-transparent p-2 text-base text-gray-500 outline-none">
+            <select className="w-1/4 bg-transparent p-2 text-base text-black outline-none">
               <option value="public">Public</option>
               <option value="private">Private</option>
             </select>
@@ -55,7 +48,7 @@ const CodeBlock: React.FC<codeblockProps> = ({
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               disabled={!isPasswordEnabled}
-              className={`w-full bg-transparent p-2 text-base text-gray-500 outline-none ${
+              className={`w-full bg-transparent p-2 text-base text-black outline-none ${
                 !isPasswordEnabled ? "cursor-not-allowed opacity-50" : ""
               }`}
             />
@@ -72,8 +65,9 @@ const CodeBlock: React.FC<codeblockProps> = ({
       <div className={`flex overflow-hidden rounded-2xl ${className}`}>
         <MonacoEditor
           height="100%"
+          width="100%"
           language={lang}
-          theme="vs-dark"
+          theme="atom-one-dark"
           value={content}
           onChange={(value) => setContent(value || "")}
           options={{
@@ -84,7 +78,7 @@ const CodeBlock: React.FC<codeblockProps> = ({
       <div className="flex items-center justify-between rounded-2xl bg-white/40 p-4">
         {/* Language Dropdown */}
         <SelectLang
-          className="rounded-2xl bg-gray-100/40 bg-opacity-10 p-2 px-4 text-sm text-gray-500 focus:outline-none"
+          className="rounded-2xl bg-gray-100/40 bg-opacity-10 p-2 px-4 text-sm text-black focus:outline-none"
           lang={lang}
           onChange={(e) => setLang(e.target.value)}
         />

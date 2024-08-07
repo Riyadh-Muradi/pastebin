@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useParams } from "next/navigation";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { coy } from "react-syntax-highlighter/dist/cjs/styles/prism";

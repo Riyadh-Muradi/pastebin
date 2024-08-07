@@ -4,9 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useDrawAnimation } from "@/hooks/useDrawAnimation";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import CodeBlock from "@/components/CodeBlock";
 import Link from "next/link";
-import CodeBlocks from "@/components/newBlock";
+import CodeBlock from "@/components/CodeBlock";
 
 const Hero = () => {
   const [text, setText] = useState("");
@@ -66,8 +65,6 @@ const Hero = () => {
           lineNumberClassName="bg-white/40"
           textareaClassName="bg-gray-200/60"
         />
-
-        {/* <CodeBlocks /> */}
       </ContainerScroll>
     </section>
   );
