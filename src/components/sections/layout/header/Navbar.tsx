@@ -36,7 +36,7 @@ const Navbar = () => {
       animate={controls}
     >
       <div className="flex items-center justify-between rounded-2xl bg-white/40 px-[3rem] py-[1rem] text-2xl shadow-sm sm:px-6 md:px-4 lg:px-6">
-        <Link href={"./"} className="text-3xl">
+        <Link href={"/"} className="text-3xl">
           <ButtonFlip title="Paste" border={false} />
         </Link>
         <div className="flex items-center justify-center gap-3 text-xl">
