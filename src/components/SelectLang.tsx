@@ -12,46 +12,50 @@ import {
 interface SelectLangProps {
   className?: string;
   lang: string;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChange: (value: string) => void;
 }
 
-const SelectLang: React.FC<SelectLangProps> = ({}) => {
+const SelectLang: React.FC<SelectLangProps> = ({
+  className,
+  lang,
+  onChange,
+}) => {
   return (
-    <Select>
-      <SelectTrigger className="w-[180px] border-none">
+    <Select onValueChange={onChange} value={lang}>
+      <SelectTrigger className={`w-[180px] border-none ${className}`}>
         <SelectValue placeholder="Select a language" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectItem value="text">text</SelectItem>
-          <SelectItem value="typescript">typescript</SelectItem>
-          <SelectItem value="javascript">javascript</SelectItem>
-          <SelectItem value="css">css</SelectItem>
-          <SelectItem value="less">less</SelectItem>
-          <SelectItem value="scss">scss</SelectItem>
-          <SelectItem value="json">json</SelectItem>
-          <SelectItem value="html">html</SelectItem>
-          <SelectItem value="xml">xml</SelectItem>
-          <SelectItem value="php">php</SelectItem>
-          <SelectItem value="csharp">csharp</SelectItem>
-          <SelectItem value="cpp">cpp</SelectItem>
-          <SelectItem value="razor">razor</SelectItem>
-          <SelectItem value="markdown">markdown</SelectItem>
-          <SelectItem value="diff">diff</SelectItem>
-          <SelectItem value="java">java</SelectItem>
-          <SelectItem value="vb">vb</SelectItem>
-          <SelectItem value="coffeescript">coffeescript</SelectItem>
-          <SelectItem value="handlebars">handlebars</SelectItem>
-          <SelectItem value="batch">batch</SelectItem>
-          <SelectItem value="pug">pug</SelectItem>
-          <SelectItem value="fsharp">fsharp</SelectItem>
-          <SelectItem value="lua">lua</SelectItem>
-          <SelectItem value="powershell">powershell</SelectItem>
-          <SelectItem value="python">python</SelectItem>
-          <SelectItem value="ruby">ruby</SelectItem>
-          <SelectItem value="sass">sass</SelectItem>
-          <SelectItem value="r">r</SelectItem>
-          <SelectItem value="objectivec">objectivec</SelectItem>
+          <SelectItem value="text">Plain Text</SelectItem>
+          <SelectItem value="typescript">TypeScript</SelectItem>
+          <SelectItem value="javascript">JavaScript</SelectItem>
+          <SelectItem value="css">CSS</SelectItem>
+          <SelectItem value="less">LESS</SelectItem>
+          <SelectItem value="scss">SCSS</SelectItem>
+          <SelectItem value="json">JSON</SelectItem>
+          <SelectItem value="html">HTML</SelectItem>
+          <SelectItem value="xml">XML</SelectItem>
+          <SelectItem value="php">PHP</SelectItem>
+          <SelectItem value="csharp">C#</SelectItem>
+          <SelectItem value="cpp">C++</SelectItem>
+          <SelectItem value="razor">Razor</SelectItem>
+          <SelectItem value="markdown">Markdown</SelectItem>
+          <SelectItem value="diff">Diff</SelectItem>
+          <SelectItem value="java">Java</SelectItem>
+          <SelectItem value="vb">VB</SelectItem>
+          <SelectItem value="coffeescript">CoffeeScript</SelectItem>
+          <SelectItem value="handlebars">Handlebars</SelectItem>
+          <SelectItem value="batch">Batch</SelectItem>
+          <SelectItem value="pug">Pug</SelectItem>
+          <SelectItem value="fsharp">F#</SelectItem>
+          <SelectItem value="lua">Lua</SelectItem>
+          <SelectItem value="powershell">Powershell</SelectItem>
+          <SelectItem value="python">Python</SelectItem>
+          <SelectItem value="ruby">Ruby</SelectItem>
+          <SelectItem value="sass">SASS</SelectItem>
+          <SelectItem value="r">R</SelectItem>
+          <SelectItem value="objectivec">Objective-C</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

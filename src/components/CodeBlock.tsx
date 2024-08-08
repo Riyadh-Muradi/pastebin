@@ -10,7 +10,6 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -91,7 +90,7 @@ const CodeBlock: React.FC<codeblockProps> = ({ className = "" }) => {
         <SelectLang
           className="rounded-2xl bg-gray-100/40 bg-opacity-10 p-2 px-4 text-sm text-black focus:outline-none"
           lang={lang}
-          onChange={(e) => setLang(e.target.value)}
+          onChange={(value) => setLang(value)}
         />
 
         {/* Copy and Download Buttons */}
