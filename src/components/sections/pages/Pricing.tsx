@@ -98,7 +98,7 @@ const Pricing = () => {
       initial={{ y: 100, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
-      className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2"
+      className="sm:mx-auto sm:w-[80%] w-full overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2"
     >
       <div className="relative flex flex-col rounded-2xl bg-white/40 px-4 py-4 text-2xl shadow-sm sm:px-6 sm:py-6 md:px-8 md:py-8">
         <Heading />
