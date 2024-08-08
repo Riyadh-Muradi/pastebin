@@ -36,7 +36,10 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="sticky w-[80%] top-4 z-50 mx-auto overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2"
+      initial={{ y: -50, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+      className="sticky top-4 z-50 mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2"
       // animate={controls}
     >
       <div className="flex items-center justify-between rounded-2xl bg-white/40 px-4 py-2 text-2xl shadow-sm sm:px-6 md:px-4 lg:px-6">

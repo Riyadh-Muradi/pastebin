@@ -3,7 +3,12 @@ import { motion } from "framer-motion";
 
 const HoverSpring = () => {
   return (
-    <section className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2 sm:w-[90%] lg:w-[80%]">
+    <motion.section
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
+      className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2 sm:w-[90%] lg:w-[80%]"
+    >
       <div className="relative flex flex-col rounded-2xl bg-white/40 p-4 text-lg shadow-sm sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
           {features.map((feature) => (
@@ -28,7 +33,7 @@ const HoverSpring = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

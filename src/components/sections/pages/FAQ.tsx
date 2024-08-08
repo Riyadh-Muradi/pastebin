@@ -84,11 +84,16 @@ const Accordion: React.FC<accordionProps> = ({ items }) => {
 
 const FAQ: React.FC = () => {
   return (
-    <div className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2">
+    <motion.section
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
+      className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2"
+    >
       <div className="relative flex flex-col rounded-2xl bg-white/40 p-4 text-lg shadow-sm sm:p-6 lg:p-8">
         <Accordion items={accordionItems} />
       </div>
-    </div>
+    </motion.section>
   );
 };
 

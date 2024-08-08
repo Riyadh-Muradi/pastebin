@@ -3,12 +3,18 @@
 import ButtonFlip from "@/components/ui/buttons/variants/ButtonFlip";
 import { footerLinks } from "@/config/footer";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2">
+    <motion.footer
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1, delay: 0.4, ease: "easeInOut" }}
+      className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2"
+    >
       <div className="relative z-40 flex flex-col rounded-2xl bg-white/40 px-4 py-6 text-2xl shadow-sm sm:px-6 md:px-4 lg:px-6">
-        <div className="flex flex-col lg:flex-row justify-between gap-8 p-4">
+        <div className="flex flex-col justify-between gap-8 p-4 lg:flex-row">
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
               <span className="self-center whitespace-nowrap text-3xl">
@@ -20,7 +26,7 @@ const Footer = () => {
               your code, notes, and snippets and share it with others.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
             {footerLinks.map((nav) => (
               <div key={nav.label}>
                 <h2 className="mb-4 text-sm uppercase tracking-tighter text-gray-900">
@@ -53,7 +59,7 @@ const Footer = () => {
           </span>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
