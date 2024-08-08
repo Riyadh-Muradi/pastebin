@@ -24,7 +24,7 @@ const SelectLang: React.FC<SelectLangProps> = ({}) => {
       <SelectContent>
         <SelectGroup>
           <SelectItem value="text">text</SelectItem>
-          <SelectItem value="typescript">jypescript</SelectItem>
+          <SelectItem value="typescript">typescript</SelectItem>
           <SelectItem value="javascript">javascript</SelectItem>
           <SelectItem value="css">css</SelectItem>
           <SelectItem value="less">less</SelectItem>

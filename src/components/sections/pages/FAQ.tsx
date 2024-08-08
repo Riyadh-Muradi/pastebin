@@ -36,7 +36,7 @@ const AccordionItem: React.FC<accordionItemProps> = ({
 
   return (
     <motion.div
-      className={`my-4 h-full w-full cursor-pointer select-none overflow-hidden`}
+      className="w-full cursor-pointer select-none overflow-hidden rounded-lg"
       variants={cardVariants}
       initial="collapsed"
       animate={isExpanded ? "expanded" : "collapsed"}
@@ -49,12 +49,12 @@ const AccordionItem: React.FC<accordionItemProps> = ({
         </motion.div>
       </div>
       <motion.div
-        className="text-md select-none px-4 py-4"
+        className="px-4 pb-4 text-sm text-gray-500"
         variants={contentVariants}
         initial="collapsed"
         animate={isExpanded ? "expanded" : "collapsed"}
       >
-        <p className="m-0 text-sm text-gray-500">{content}</p>
+        <p>{content}</p>
       </motion.div>
     </motion.div>
   );
@@ -68,7 +68,7 @@ const Accordion: React.FC<accordionProps> = ({ items }) => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       {items.map((item, index) => (
         <AccordionItem
           key={index}
@@ -85,7 +85,7 @@ const Accordion: React.FC<accordionProps> = ({ items }) => {
 const FAQ: React.FC = () => {
   return (
     <div className="mx-auto w-[80%] overflow-hidden rounded-2xl bg-gray-100 bg-opacity-10 p-2">
-      <div className="relative flex flex-col rounded-2xl bg-white/40 px-[3rem] py-[1rem] text-2xl shadow-sm sm:px-6 md:px-4 lg:px-6">
+      <div className="relative flex flex-col rounded-2xl bg-white/40 p-4 text-lg shadow-sm sm:p-6 lg:p-8">
         <Accordion items={accordionItems} />
       </div>
     </div>
