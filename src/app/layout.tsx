@@ -21,7 +21,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={Font.className}>
       <head></head>
-      <body className="flex h-full w-full flex-col gap-8 p-4 md:p-8">
+      <body >
+        <main className="flex h-full w-full flex-col gap-8 p-4 md:p-8">
         <Navbar />
         {children}
         <Footer />
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </span>
         {/* <div className="-top-0.49 absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]"></div>
         <div className="absolute inset-0 top-full -z-10 h-full w-full rotate-180 bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]"></div> */}
+        </main>
       </body>
     </html>
   );
